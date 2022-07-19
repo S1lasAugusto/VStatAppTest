@@ -1,0 +1,63 @@
+<ion-header [translucent]="false" color="light">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button size="small">
+        <ion-icon  slot="icon-only" name="location-outline" style="color: #000;"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon  slot="icon-only" name="battery-full-outline" style="color: #000;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" style="color: #000;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Análise
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="success">
+  <ion-item class="item-padding">
+    <ion-label>Process (required)</ion-label>
+    <ion-select [(ngModel)]="params.op">
+      <ion-select-option value="DPV">DPV</ion-select-option>
+      <ion-select-option value="Hibridização">Hibridização</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>(optional data)</ion-card-subtitle>
+      <ion-card-title>Patient Data</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input [(ngModel)]="params.nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">CPF</ion-label>
+        <ion-input [(ngModel)]="params.cpf"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Idade</ion-label>
+        <ion-input [(ngModel)]="params.idade"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Peso (Kg)</ion-label>
+        <ion-input [(ngModel)]="params.peso"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-button expand="block" color="warning" (click)="goToChart()">CONFIRM PROCESS
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

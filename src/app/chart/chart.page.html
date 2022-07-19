@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #000;"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="chartView('chartIcon')" shape="round" fill="clear" size="small" color="light"
+        style="margin: 0;">
+        <ion-icon slot="icon-only" name="{{iconViews.chartIcon}}" style="color: #000;"></ion-icon>
+      </ion-button>
+      <ion-button (click)='connbtn()'>
+        <ion-icon slot="icon-only" name="{{iconCntBtn}}" style="color: #000;"></ion-icon>
+      </ion-button>
+      <ion-button (click)="paramsView('paramsIcon')" shape="round" fill="clear" size="small" color="light"
+        style="margin: 0;">
+        <ion-icon slot="icon-only" name="{{iconViews.paramsIcon}}" style="color: #000;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="success">
+
+  <ion-card [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
+    <ion-card-header>
+      <ion-card-subtitle>Chart</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-align-items-center terminal-header">
+        </ion-row>
+        <ion-row [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
+          <canvas baseChart [datasets]="chartData" [chartType]="chartType" [labels]="chartLabels" [options]="chartOptions"  [legend]="showLegend"></canvas>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <br>
+  <ion-card [style.display]="iconViews.paramsIcon === 'options'?'block':'none'">
+    <ion-card-header>
+      <ion-card-subtitle>(required data)</ion-card-subtitle>
+      <ion-card-title>Process Parameters</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Potencial Inicial (V)</ion-label>
+        <ion-input [(ngModel)]="params.pIni"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Potencial Final (V)</ion-label>
+        <ion-input [(ngModel)]="params.pFim"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Potencial do passo (V)</ion-label>
+        <ion-input [(ngModel)]="params.pPas"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Tempo do passo (s)</ion-label>
+        <ion-input [(ngModel)]="params.tPas"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Potencial do pulso (V)</ion-label>
+        <ion-input [(ngModel)]="params.pPul"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Tempo do pulso (s)</ion-label>
+        <ion-input [(ngModel)]="params.tPul"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Tempo de equilíbrio (s)</ion-label>
+        <ion-input [(ngModel)]="params.tEqu"></ion-input>
+      </ion-item>
+      <ion-item class="item-padding">
+        <ion-label position="stacked">Int. Corrent</ion-label>
+        <ion-select [(ngModel)]="params.fEsc">
+          <ion-select-option value="5">Auto</ion-select-option> // tar
+          <ion-select-option value="0">+/- 5uA</ion-select-option> //
+          <ion-select-option value="1">+/- 10uA</ion-select-option>
+          <ion-select-option value="2">+/- 20uA</ion-select-option>
+          <ion-select-option value="3">+/- 50uA</ion-select-option>
+          <ion-select-option value="4">+/- 100uA</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <ion-grid>
+    <ion-row class="ion-align-items-center terminal-header">
+      <ion-col>
+        <strong style="font-size: 14px;">Terminal</strong>
+      </ion-col>
+      <ion-col style="text-align: end;">
+        <ion-button (click)="hideView('terminalIcon')" shape="round" fill="clear" size="small" color="light"
+          style="margin: 0;">
+          <ion-icon slot="icon-only" name={{iconViews.terminalIcon}} style="color: #000;"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="height: 10em;" [style.display]="iconViews.terminalIcon === 'eye-off-outline'?'block':'none'">
+      <ion-col style="padding: 0;">
+        <ion-content #terminalView [scrollEvents]="true" class="terminal">
+          <p style="margin-block-start: 0em; margin-block-end: 0em;" *ngFor='let line of terminal'
+            class={{line.color}}{{line.class}}>{{line.text}}</p>
+          <!-- ion-text *ngFor="let line of terminal" class={{line.class}} color={{line.color}}>{{line.text}}<br></!-->
+        </ion-content>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card>
+    <ion-card-content>
+      <ion-button color="warning" expand="block" (click)="actionBtn(btnDef.text)" [disabled]="!ready">{{btnDef.text}}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

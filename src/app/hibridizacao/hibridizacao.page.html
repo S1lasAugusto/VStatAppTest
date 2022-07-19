@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToChart()">
+        <ion-icon slot="icon-only" name="analytics-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Hibridização
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item class="item-padding">
+    <ion-label position="stacked">Temperatura Alvo(°C)</ion-label>
+    <ion-input [(ngModel)]="params.sTmp"></ion-input>
+  </ion-item>
+  <ion-item class="item-padding">
+    <ion-label position="stacked">Duração (min)</ion-label>
+    <ion-input [(ngModel)]="params.dTim"></ion-input>
+  </ion-item>
+</ion-content>

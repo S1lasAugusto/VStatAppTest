@@ -1,0 +1,23 @@
+<ion-app>
+  <ion-menu menuId="main-menu" content-id="main">
+    <ion-header>
+      <ion-toolbar>
+      <ion-title>Manager</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon slot="start" name="settings-outline"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="moon-outline"></ion-icon>
+          <ion-label>Dark Mode</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,7 @@
+{
+  "name": "VStatAppTest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

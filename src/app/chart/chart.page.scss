@@ -1,0 +1,53 @@
+$terminal-font-size: 12px;
+
+canvas {
+    max-width: 100%;
+}
+
+.entry {
+  font-size: $terminal-font-size;
+}
+
+/* Terminal */
+.terminal-header{
+  background: #ECECEC;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding-left: 8px;
+}
+.terminal-card{
+  padding: 0;
+}
+.terminal {
+  --background: rgb(26, 26, 26);
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  max-width: 100%;
+  padding: 0.3em;
+}
+
+.entryOut{
+  color: darkturquoise;
+}
+
+.entryIn{
+  color:chartreuse;
+}
+
+.entrySystem{
+  color:lightgray;
+}
+
+.pointer {
+  animation: blinker 1s linear infinite;
+  font-size: $terminal-font-size;
+  font-weight: bold;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
