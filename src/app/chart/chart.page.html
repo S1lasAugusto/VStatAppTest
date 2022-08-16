@@ -23,7 +23,7 @@
 
   <ion-card [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
     <ion-card-header>
-      <ion-card-subtitle>Chart</ion-card-subtitle>
+      <ion-card-subtitle>ChartLine</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-grid>
@@ -35,7 +35,21 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
-
+  <br>
+  <ion-card [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
+    <ion-card-header>
+      <ion-card-subtitle>Scatter Chart</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-align-items-center terminal-header">
+        </ion-row>
+        <ion-row [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
+          <canvas baseChart [datasets]="chartDataScatter" [chartType]="chartTypeScatter" [labels]="chartLabelsScatter" [options]="chartOptionsScatter"  [legend]="showLegend"></canvas>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
   <br>
   <ion-card [style.display]="iconViews.paramsIcon === 'options'?'block':'none'">
     <ion-card-header>

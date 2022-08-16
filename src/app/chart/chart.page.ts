@@ -19,13 +19,15 @@ export interface TimeSpan {
 })
 export class ChartPage implements OnInit {
   @ViewChild('terminalView') content: IonContent;
-  // Data
+
+  // Data Line Chart
   public chartData: ChartDataSets[] = [{ data: [], label: '' }];
   public chartType: ChartType = "line";
   public showLegend = false;
   public chartLabels: Label[] = [];
-   // Options
-   chartOptions = {
+
+  // Options
+  chartOptions = {
     responsive: false,
     title: {
       display: false,
@@ -40,6 +42,30 @@ export class ChartPage implements OnInit {
       mode: 'xy'
     }
   };
+
+  // Data Scatter Chart
+  public chartDataScatter: ChartDataSets[] = [{ data: [], label: '' }];
+  public chartTypeScatter: ChartType = "scatter";
+  public showLegendScatter = false;
+  public chartLabelsScatter: Label[] = [];
+
+  // Scatter Options 
+  chartOptionsScatter = {
+    responsive: true,
+    title: {
+      display: false,
+      text: 'title'
+    },
+    pan: {
+      enabled: true,
+      mode: 'xy'
+    },
+    zoom: {
+      enabled: true,
+      mode: 'xy'
+    }
+  };
+
 
   params = {
     op: 'DPV',
@@ -231,8 +257,43 @@ export class ChartPage implements OnInit {
   }
 
   communicate() {
+    //Line
     this.chartData[0].data = [];
     this.chartLabels = [];
+    //Scatter
+    this.chartDataScatter[0].data = [{
+      x: 0,
+      y: 10
+    }, {
+      x: -10,
+      y: 0
+    }, {
+      x: 10,
+      y: 5
+    }, {
+      x: 5,
+      y: 5
+    }, {
+      x: 5,
+      y: -6
+    }, {
+      x: -5.5,
+      y: 2
+    }]
+
+    for(let x = 0; x <10 ; x++){
+
+      this.chartDataScatter[0].data.push({x:x,y:x});
+      
+    }
+
+    for(let x = 0; x <10 ; x++){
+
+      this.chartDataScatter[0].data.push({x:(x*-1),y:(x*-1)});
+      
+    }
+
+    this.chartLabelsScatter = [];
     this.terminal = [
       { color: "entrySystem", class: " pointer", text: "_" }
     ];
@@ -273,7 +334,7 @@ export class ChartPage implements OnInit {
                 this.entryTerminal('entryIn', error);
               }
             } else {
-             // this.entryTerminal('entryIn', 'Else da Quebra de Linha');
+              // this.entryTerminal('entryIn', 'Else da Quebra de Linha');
               let currentChar = '';
 
               now.forEach(c => {
@@ -354,7 +415,7 @@ export class ChartPage implements OnInit {
       this.actionToReceive(ob);
 
       this.entryTerminal('entryIn', this.receivedString);
-    //this.entryTerminal('entryIn', 'Função Teste');
+      //this.entryTerminal('entryIn', 'Função Teste');
 
       this.receivedString = '';
       this.content.scrollToBottom();
