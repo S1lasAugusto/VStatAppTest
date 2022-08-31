@@ -2,7 +2,7 @@ import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Serial } from '@ionic-native/serial/ngx';
-import { ChartDataSets, ChartType } from 'chart.js';
+import { ChartDataSets, ChartType, pluginService } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { BehaviorSubject } from 'rxjs';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
@@ -11,7 +11,6 @@ export interface TimeSpan {
   minutes: number;
   seconds: number;
 }
-
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.page.html',
@@ -26,46 +25,102 @@ export class ChartPage implements OnInit {
   public showLegend = false;
   public chartLabels: Label[] = [];
 
+
   // Options
   chartOptions = {
-    responsive: false,
-    title: {
-      display: false,
-      text: 'title'
-    },
-    pan: {
-      enabled: true,
-      mode: 'xy'
-    },
-    zoom: {
-      enabled: true,
-      mode: 'xy'
-    }
-  };
-
-  // Data Scatter Chart
-  public chartDataScatter: ChartDataSets[] = [{ data: [], label: '' }];
-  public chartTypeScatter: ChartType = "scatter";
-  public showLegendScatter = false;
-  public chartLabelsScatter: Label[] = [];
-
-  // Scatter Options 
-  chartOptionsScatter = {
     responsive: true,
     title: {
       display: false,
       text: 'title'
     },
     pan: {
+      // Boolean to enable panning
       enabled: true,
-      mode: 'xy'
+
+      // Panning directions. Remove the appropriate direction to disable
+      // Eg. 'y' would only allow panning in the y direction
+      // A function that is called as the user is panning and returns the
+      // available directions can also be used:
+      //   mode: function({ chart }) {
+      //     return 'xy';
+      //   },
+      mode: 'xy',
+
+      rangeMin: {
+        // Format of min pan range depends on scale type
+        x: null,
+        y: null
+      },
+      rangeMax: {
+        // Format of max pan range depends on scale type
+        x: null,
+        y: null
+      },
+
+      // On category scale, factor of pan velocity
+      speed: 20,
+
+      // Minimal pan distance required before actually applying pan
+      threshold: 10,
+
+      // Function called while the user is panning
+      onPan: function ({ chart }) { console.log(`I'm panning!!!`); },
+      // Function called once panning is completed
+      onPanComplete: function ({ chart }) { console.log(`I was panned!!!`); }
     },
     zoom: {
+      // Boolean to enable zooming
       enabled: true,
-      mode: 'xy'
-    }
+
+      // Enable drag-to-zoom behavior
+      drag: true,
+
+      // Drag-to-zoom effect can be customized
+      // drag: {
+      //      borderColor: 'rgba(225,225,225,0.3)'
+      //      borderWidth: 5,
+      //      backgroundColor: 'rgb(225,225,225)',
+      //      animationDuration: 0
+      // },
+
+      // Zooming directions. Remove the appropriate direction to disable
+      // Eg. 'y' would only allow zooming in the y direction
+      // A function that is called as the user is zooming and returns the
+      // available directions can also be used:
+      //   mode: function({ chart }) {
+      //     return 'xy';
+      //   },
+      mode: 'xy',
+
+      rangeMin: {
+        // Format of min zoom range depends on scale type
+        x: null,
+        y: null
+      },
+      rangeMax: {
+        // Format of max zoom range depends on scale type
+        x: null,
+        y: null
+      },
+
+      // Speed of zoom via mouse wheel
+      // (percentage of zoom on a wheel event)
+      speed: 0.1,
+
+      // Minimal zoom distance required before actually applying zoom
+      threshold: 2,
+
+      // On category scale, minimal zoom level before actually applying zoom
+      sensitivity: 3,
+
+      // Function called while the user is zooming
+      onZoom: function ({ chart }) { console.log(`I'm zooming!!!`); },
+      // Function called once zooming is completed
+      onZoomComplete: function ({ chart }) { console.log(`I was zoomed!!!`); }
+    },
   };
 
+  dataForReport: any;
 
   params = {
     op: 'DPV',
@@ -249,7 +304,7 @@ export class ChartPage implements OnInit {
     );
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        //this.params = this.router.getCurrentNavigation().extras.state.params;
+        this.dataForReport = this.router.getCurrentNavigation().extras.state.params;
         this.configView();
       }
     });
@@ -257,46 +312,16 @@ export class ChartPage implements OnInit {
   }
 
   communicate() {
-    //Line
+    //Propriedade Radius é o tamanho do ponto do gráfico
+    this.chartData[0].radius = 0.0;
+    //Certificando que os arrays do gráfico estão limpos antes de iniciar uma nova comunicação
     this.chartData[0].data = [];
     this.chartLabels = [];
-    //Scatter
-    this.chartDataScatter[0].data = [{
-      x: 0,
-      y: 10
-    }, {
-      x: -10,
-      y: 0
-    }, {
-      x: 10,
-      y: 5
-    }, {
-      x: 5,
-      y: 5
-    }, {
-      x: 5,
-      y: -6
-    }, {
-      x: -5.5,
-      y: 2
-    }]
-
-    for(let x = 0; x <10 ; x++){
-
-      this.chartDataScatter[0].data.push({x:x,y:x});
-      
-    }
-
-    for(let x = 0; x <10 ; x++){
-
-      this.chartDataScatter[0].data.push({x:(x*-1),y:(x*-1)});
-      
-    }
-
-    this.chartLabelsScatter = [];
     this.terminal = [
       { color: "entrySystem", class: " pointer", text: "_" }
     ];
+    this.generateReport();
+
     //this.serial.requestPermission({vid: '2886', pid: '802F', driver: 'CdcAcmSerialDriver'}).then(() => {
     this.serial.requestPermission({ vid: '2341', pid: '804D', driver: 'CdcAcmSerialDriver' }).then(() => {
 
@@ -424,4 +449,15 @@ export class ChartPage implements OnInit {
     }
   }
 
+  generateReport() {
+    this.entryTerminal('entrySystem', "--------------------/Relatorio/--------------------");
+    this.entryTerminal('entrySystem', "Nome do Operador: " + this.dataForReport.name);
+    this.entryTerminal('entrySystem', "N° de Matricula do Operador: " + this.dataForReport.registerOperator);
+    this.entryTerminal('entrySystem', "--------------------///--------------------");
+    this.entryTerminal('entrySystem', "Nome do Paciente: " + this.dataForReport.nome);
+    this.entryTerminal('entrySystem', "CPF do Paciente: " + this.dataForReport.cpf);
+    this.entryTerminal('entrySystem', "Idade do Paciente: " + this.dataForReport.idade);
+    this.entryTerminal('entrySystem', "Peso do Paciente: " + this.dataForReport.peso);
+    this.entryTerminal('entrySystem', "--------------------///--------------------");
+  }
 }

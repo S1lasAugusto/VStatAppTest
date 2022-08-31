@@ -7,6 +7,7 @@ import { ChartPage } from './chart.page';
 import { ChartsModule } from 'ng2-charts';
 import { Serial } from '@ionic-native/serial/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import 'chartjs-plugin-zoom';
 
 @NgModule({
   imports: [

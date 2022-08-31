@@ -1,30 +1,74 @@
 <ion-header [translucent]="false" color="light">
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button size="small">
-        <ion-icon  slot="icon-only" name="location-outline" style="color: #000;"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon  slot="icon-only" name="battery-full-outline" style="color: #000;"></ion-icon>
+      <ion-button (click)="operatorsView('operatorsIcon')" shape="round" fill="clear" size="small" color="light"
+        style="margin: 0;">
+        <ion-icon slot="icon-only" name="{{iconViews.operatorsIcon}}" style="color: #000;"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu" style="color: #000;"></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Análise
+      Analysis
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="success">
-  <ion-item class="item-padding">
-    <ion-label>Process (required)</ion-label>
-    <ion-select [(ngModel)]="params.op">
-      <ion-select-option value="DPV">DPV</ion-select-option>
-      <ion-select-option value="Hibridização">Hibridização</ion-select-option>
-    </ion-select>
-  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Welcome !!</ion-card-subtitle>
+      <ion-card-title>{{currentUser.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>
+        Register Operator: <br>
+      </h2>
+      <h4>#BR{{currentUser.registerOperator}} <br>
+      </h4>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card [style.display]="iconViews.operatorsIcon === 'people-circle'?'block':'none'">
+    <ion-card-header>
+      <ion-card-subtitle>Operator list</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="full" mode="ios" class="animated bounceInUp">
+        <ion-item-sliding *ngFor="let operator of operators">
+          <ion-item>
+            <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+            <ion-label>{{ operator.name }}</ion-label>
+          </ion-item>
+          <ion-item-options>
+            <ion-item-option color="secondary" expandable (click)="setCurrentUser(operator)">
+              <ion-icon slot="bottom" name="checkmark"></ion-icon>
+              SELECT
+            </ion-item-option>
+            <ion-item-option color="danger" expandable>
+              <ion-icon name='trash' slot="bottom" (click)="delete(operator)"></ion-icon>
+              DELETE
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      <br>
+      <ion-button expand="block" color="warning" (click)="addOperator()">ADD OPERATOR
+        <ion-icon slot="end" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item class="item-padding">
+      <ion-label>Process (required)</ion-label>
+      <ion-select [(ngModel)]="params.op">
+        <ion-select-option value="DPV">DPV</ion-select-option>
+        <ion-select-option value="Hibridização">Hibridização</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
 
   <ion-card>
     <ion-card-header>
@@ -34,20 +78,20 @@
 
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating">Nome</ion-label>
-        <ion-input [(ngModel)]="params.nome"></ion-input>
+        <ion-label position="floating">Patient's Name</ion-label>
+        <ion-input [(ngModel)]="patientParams.nome"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">CPF</ion-label>
-        <ion-input [(ngModel)]="params.cpf"></ion-input>
+        <ion-label position="floating">Patient's CPF</ion-label>
+        <ion-input [(ngModel)]="patientParams.cpf"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Idade</ion-label>
-        <ion-input [(ngModel)]="params.idade"></ion-input>
+        <ion-label position="floating">Patient Age</ion-label>
+        <ion-input [(ngModel)]="patientParams.idade"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Peso (Kg)</ion-label>
-        <ion-input [(ngModel)]="params.peso"></ion-input>
+        <ion-label position="floating">Patient Weight (Kg)</ion-label>
+        <ion-input [(ngModel)]="patientParams.peso"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
