@@ -58,7 +58,7 @@ export class ChartPage implements OnInit {
       },
 
       // On category scale, factor of pan velocity
-      speed: 20,
+      speed: 40,
 
       // Minimal pan distance required before actually applying pan
       threshold: 10,
@@ -105,7 +105,7 @@ export class ChartPage implements OnInit {
 
       // Speed of zoom via mouse wheel
       // (percentage of zoom on a wheel event)
-      speed: 0.1,
+      speed: 0.3,
 
       // Minimal zoom distance required before actually applying zoom
       threshold: 2,
@@ -260,7 +260,8 @@ export class ChartPage implements OnInit {
       pt(scope) {
         const x = + ob.x;
         const y1 = +ob.y1;
-        const y = y1;
+        const y2 = +ob.y2;
+        const y = y1 - y2;
         scope.chartData[0].data.push(y);
         scope.chartLabels.push(x + '');
       },

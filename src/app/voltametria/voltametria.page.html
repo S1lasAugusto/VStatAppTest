@@ -1,4 +1,4 @@
-<ion-header [translucent]="false" color="light">
+<ion-header [translucent]="false" color="light" collapse="fade" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button (click)="operatorsView('operatorsIcon')" shape="round" fill="clear" size="small" color="light"
@@ -15,7 +15,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="success">
+<ion-content [fullscreen]="true" color="tertiary">
 
   <ion-card>
     <ion-card-header>
@@ -55,7 +55,7 @@
         </ion-item-sliding>
       </ion-list>
       <br>
-      <ion-button expand="block" color="warning" (click)="addOperator()">ADD OPERATOR
+      <ion-button expand="block" color="tertiary" (click)="addOperator()">ADD OPERATOR
         <ion-icon slot="end" name="add-outline"></ion-icon>
       </ion-button>
     </ion-card-content>
@@ -98,7 +98,7 @@
 
   <ion-card>
     <ion-card-content>
-      <ion-button expand="block" color="warning" (click)="goToChart()">CONFIRM PROCESS
+      <ion-button expand="block" color="tertiary" (click)="goToChart()">CONFIRM PROCESS
         <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
       </ion-button>
     </ion-card-content>

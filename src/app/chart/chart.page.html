@@ -19,7 +19,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" color="success">
+<ion-content class="ion-padding" color="tertiary">
 
   <ion-card [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
     <ion-card-header>
@@ -109,7 +109,7 @@
   </ion-grid>
   <ion-card>
     <ion-card-content>
-      <ion-button color="warning" expand="block" (click)="actionBtn(btnDef.text)" [disabled]="!ready">{{btnDef.text}}
+      <ion-button color="tertiary" expand="block" (click)="actionBtn(btnDef.text)" [disabled]="!ready">{{btnDef.text}}
       </ion-button>
     </ion-card-content>
   </ion-card>
