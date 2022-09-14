@@ -1150,6 +1150,46 @@ function conforms(source) {
 
 /***/ }),
 
+/***/ "/YwH":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/interfaces.js ***!
+  \******************************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+//# sourceMappingURL=interfaces.js.map
+
+/***/ }),
+
+/***/ "/nDd":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/cordova-instance.js ***!
+  \************************************************************************************************/
+/*! exports provided: cordovaInstance */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cordovaInstance", function() { return cordovaInstance; });
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ "AT/+");
+
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param config
+ * @param args
+ */
+function cordovaInstance(pluginObj, methodName, config, args) {
+    args = Array.from(args);
+    return Object(_common__WEBPACK_IMPORTED_MODULE_0__["wrapInstance"])(pluginObj, methodName, config).apply(this, args);
+}
+//# sourceMappingURL=cordova-instance.js.map
+
+/***/ }),
+
 /***/ "/rCX":
 /*!*****************************************!*\
   !*** ./node_modules/lodash-es/after.js ***!
@@ -5272,6 +5312,44 @@ function createOver(arrayFunc) {
 
 /***/ }),
 
+/***/ "5npb":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/bootstrap.js ***!
+  \******************************************************************************/
+/*! exports provided: checkReady */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkReady", function() { return checkReady; });
+/**
+ *
+ */
+function checkReady() {
+    if (typeof process === 'undefined') {
+        var win_1 = typeof window !== 'undefined' ? window : {};
+        var DEVICE_READY_TIMEOUT_1 = 5000;
+        // To help developers using cordova, we listen for the device ready event and
+        // log an error if it didn't fire in a reasonable amount of time. Generally,
+        // when this happens, developers should remove and reinstall plugins, since
+        // an inconsistent plugin is often the culprit.
+        var before_1 = Date.now();
+        var didFireReady_1 = false;
+        win_1.document.addEventListener('deviceready', function () {
+            console.log("Ionic Native: deviceready event fired after " + (Date.now() - before_1) + " ms");
+            didFireReady_1 = true;
+        });
+        setTimeout(function () {
+            if (!didFireReady_1 && win_1.cordova) {
+                console.warn("Ionic Native: deviceready did not fire within " + DEVICE_READY_TIMEOUT_1 + "ms. This can happen when plugins are in an inconsistent state. Try removing plugins from plugins/ and reinstalling them.");
+            }
+        }, DEVICE_READY_TIMEOUT_1);
+    }
+}
+//# sourceMappingURL=bootstrap.js.map
+
+/***/ }),
+
 /***/ "5oVV":
 /*!**********************************************!*\
   !*** ./node_modules/lodash-es/_lazyValue.js ***!
@@ -6600,6 +6678,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/native-audio/ngx */ "fLLL");
 /* harmony import */ var chartjs_plugin_zoom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! chartjs-plugin-zoom */ "9jQl");
 /* harmony import */ var chartjs_plugin_zoom__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(chartjs_plugin_zoom__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _awesome_cordova_plugins_geolocation_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @awesome-cordova-plugins/geolocation/ngx */ "Ao8F");
+/* harmony import */ var _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @awesome-cordova-plugins/native-geocoder/ngx */ "itIa");
+
+
 
 
 
@@ -6623,7 +6705,7 @@ ChartPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             ng2_charts__WEBPACK_IMPORTED_MODULE_7__["ChartsModule"]
         ],
         declarations: [_chart_page__WEBPACK_IMPORTED_MODULE_6__["ChartPage"]],
-        providers: [_ionic_native_serial_ngx__WEBPACK_IMPORTED_MODULE_8__["Serial"], _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_9__["NativeAudio"]]
+        providers: [_ionic_native_serial_ngx__WEBPACK_IMPORTED_MODULE_8__["Serial"], _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_9__["NativeAudio"], _awesome_cordova_plugins_geolocation_ngx__WEBPACK_IMPORTED_MODULE_11__["Geolocation"], _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_12__["NativeGeocoder"]]
     })
 ], ChartPageModule);
 
@@ -8380,6 +8462,545 @@ function isArrayLikeObject(value) {
 
 /***/ }),
 
+/***/ "AT/+":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/common.js ***!
+  \**************************************************************************************/
+/*! exports provided: ERR_CORDOVA_NOT_AVAILABLE, ERR_PLUGIN_NOT_INSTALLED, getPromise, wrapPromise, checkAvailability, instanceAvailability, setIndex, callCordovaPlugin, callInstance, getPlugin, get, pluginWarn, cordovaWarn, wrap, wrapInstance */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERR_CORDOVA_NOT_AVAILABLE", function() { return ERR_CORDOVA_NOT_AVAILABLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERR_PLUGIN_NOT_INSTALLED", function() { return ERR_PLUGIN_NOT_INSTALLED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPromise", function() { return getPromise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapPromise", function() { return wrapPromise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkAvailability", function() { return checkAvailability; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "instanceAvailability", function() { return instanceAvailability; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setIndex", function() { return setIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callCordovaPlugin", function() { return callCordovaPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callInstance", function() { return callInstance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPlugin", function() { return getPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pluginWarn", function() { return pluginWarn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cordovaWarn", function() { return cordovaWarn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrap", function() { return wrap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapInstance", function() { return wrapInstance; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+
+var ERR_CORDOVA_NOT_AVAILABLE = { error: 'cordova_not_available' };
+var ERR_PLUGIN_NOT_INSTALLED = { error: 'plugin_not_installed' };
+/**
+ * @param callback
+ */
+function getPromise(callback) {
+    var tryNativePromise = function () {
+        if (Promise) {
+            return new Promise(function (resolve, reject) {
+                callback(resolve, reject);
+            });
+        }
+        else {
+            console.error('No Promise support or polyfill found. To enable Ionic Native support, please add the es6-promise polyfill before this script, or run with a library like Angular or on a recent browser.');
+        }
+    };
+    if (typeof window !== 'undefined' && window.angular) {
+        var doc = window.document;
+        var injector = window.angular.element(doc.querySelector('[ng-app]') || doc.body).injector();
+        if (injector) {
+            var $q = injector.get('$q');
+            return $q(function (resolve, reject) {
+                callback(resolve, reject);
+            });
+        }
+        console.warn("Angular 1 was detected but $q couldn't be retrieved. This is usually when the app is not bootstrapped on the html or body tag. Falling back to native promises which won't trigger an automatic digest when promises resolve.");
+    }
+    return tryNativePromise();
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param args
+ * @param opts
+ */
+function wrapPromise(pluginObj, methodName, args, opts) {
+    if (opts === void 0) { opts = {}; }
+    var pluginResult, rej;
+    var p = getPromise(function (resolve, reject) {
+        if (opts.destruct) {
+            pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts, function () {
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return resolve(args);
+            }, function () {
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return reject(args);
+            });
+        }
+        else {
+            pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts, resolve, reject);
+        }
+        rej = reject;
+    });
+    // Angular throws an error on unhandled rejection, but in this case we have already printed
+    // a warning that Cordova is undefined or the plugin is uninstalled, so there is no reason
+    // to error
+    if (pluginResult && pluginResult.error) {
+        p.catch(function () { });
+        typeof rej === 'function' && rej(pluginResult.error);
+    }
+    return p;
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param args
+ * @param opts
+ */
+function wrapOtherPromise(pluginObj, methodName, args, opts) {
+    if (opts === void 0) { opts = {}; }
+    return getPromise(function (resolve, reject) {
+        var pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts);
+        if (pluginResult) {
+            if (pluginResult.error) {
+                reject(pluginResult.error);
+            }
+            else if (pluginResult.then) {
+                pluginResult.then(resolve).catch(reject);
+            }
+        }
+        else {
+            reject({ error: 'unexpected_error' });
+        }
+    });
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param args
+ * @param opts
+ */
+function wrapObservable(pluginObj, methodName, args, opts) {
+    if (opts === void 0) { opts = {}; }
+    return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
+        var pluginResult;
+        if (opts.destruct) {
+            pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts, function () {
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return observer.next(args);
+            }, function () {
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return observer.error(args);
+            });
+        }
+        else {
+            pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts, observer.next.bind(observer), observer.error.bind(observer));
+        }
+        if (pluginResult && pluginResult.error) {
+            observer.error(pluginResult.error);
+            observer.complete();
+        }
+        return function () {
+            try {
+                if (opts.clearFunction) {
+                    if (opts.clearWithArgs) {
+                        return callCordovaPlugin(pluginObj, opts.clearFunction, args, opts, observer.next.bind(observer), observer.error.bind(observer));
+                    }
+                    return callCordovaPlugin(pluginObj, opts.clearFunction, []);
+                }
+            }
+            catch (e) {
+                console.warn('Unable to clear the previous observable watch for', pluginObj.constructor.getPluginName(), methodName);
+                console.warn(e);
+            }
+        };
+    });
+}
+/**
+ * Wrap the event with an observable
+ *
+ * @private
+ * @param event event name
+ * @param element The element to attach the event listener to
+ * @returns {Observable}
+ */
+function wrapEventObservable(event, element) {
+    element =
+        typeof window !== 'undefined' && element
+            ? get(window, element)
+            : element || (typeof window !== 'undefined' ? window : {});
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["fromEvent"])(element, event);
+}
+/**
+ * @param plugin
+ * @param methodName
+ * @param pluginName
+ */
+function checkAvailability(plugin, methodName, pluginName) {
+    var pluginRef, pluginPackage;
+    if (typeof plugin === 'string') {
+        pluginRef = plugin;
+    }
+    else {
+        pluginRef = plugin.constructor.getPluginRef();
+        pluginName = plugin.constructor.getPluginName();
+        pluginPackage = plugin.constructor.getPluginInstallName();
+    }
+    var pluginInstance = getPlugin(pluginRef);
+    if (!pluginInstance || (!!methodName && typeof pluginInstance[methodName] === 'undefined')) {
+        if (typeof window === 'undefined' || !window.cordova) {
+            cordovaWarn(pluginName, methodName);
+            return ERR_CORDOVA_NOT_AVAILABLE;
+        }
+        pluginWarn(pluginName, pluginPackage, methodName);
+        return ERR_PLUGIN_NOT_INSTALLED;
+    }
+    return true;
+}
+/**
+ * Checks if _objectInstance exists and has the method/property
+ *
+ * @param pluginObj
+ * @param methodName
+ * @private
+ */
+function instanceAvailability(pluginObj, methodName) {
+    return pluginObj._objectInstance && (!methodName || typeof pluginObj._objectInstance[methodName] !== 'undefined');
+}
+/**
+ * @param args
+ * @param opts
+ * @param resolve
+ * @param reject
+ */
+function setIndex(args, opts, resolve, reject) {
+    if (opts === void 0) { opts = {}; }
+    // ignore resolve and reject in case sync
+    if (opts.sync) {
+        return args;
+    }
+    // If the plugin method expects myMethod(success, err, options)
+    if (opts.callbackOrder === 'reverse') {
+        // Get those arguments in the order [resolve, reject, ...restOfArgs]
+        args.unshift(reject);
+        args.unshift(resolve);
+    }
+    else if (opts.callbackStyle === 'node') {
+        args.push(function (err, result) {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(result);
+            }
+        });
+    }
+    else if (opts.callbackStyle === 'object' && opts.successName && opts.errorName) {
+        var obj = {};
+        obj[opts.successName] = resolve;
+        obj[opts.errorName] = reject;
+        args.push(obj);
+    }
+    else if (typeof opts.successIndex !== 'undefined' || typeof opts.errorIndex !== 'undefined') {
+        var setSuccessIndex = function () {
+            // If we've specified a success/error index
+            if (opts.successIndex > args.length) {
+                args[opts.successIndex] = resolve;
+            }
+            else {
+                args.splice(opts.successIndex, 0, resolve);
+            }
+        };
+        var setErrorIndex = function () {
+            // We don't want that the reject cb gets spliced into the position of an optional argument that has not been
+            // defined and thus causing non expected behavior.
+            if (opts.errorIndex > args.length) {
+                args[opts.errorIndex] = reject; // insert the reject fn at the correct specific index
+            }
+            else {
+                args.splice(opts.errorIndex, 0, reject); // otherwise just splice it into the array
+            }
+        };
+        if (opts.successIndex > opts.errorIndex) {
+            setErrorIndex();
+            setSuccessIndex();
+        }
+        else {
+            setSuccessIndex();
+            setErrorIndex();
+        }
+    }
+    else {
+        // Otherwise, let's tack them on to the end of the argument list
+        // which is 90% of cases
+        args.push(resolve);
+        args.push(reject);
+    }
+    return args;
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param args
+ * @param opts
+ * @param resolve
+ * @param reject
+ */
+function callCordovaPlugin(pluginObj, methodName, args, opts, resolve, reject) {
+    if (opts === void 0) { opts = {}; }
+    // Try to figure out where the success/error callbacks need to be bound
+    // to our promise resolve/reject handlers.
+    args = setIndex(args, opts, resolve, reject);
+    var availabilityCheck = checkAvailability(pluginObj, methodName);
+    if (availabilityCheck === true) {
+        var pluginInstance = getPlugin(pluginObj.constructor.getPluginRef());
+        // eslint-disable-next-line prefer-spread
+        return pluginInstance[methodName].apply(pluginInstance, args);
+    }
+    else {
+        return availabilityCheck;
+    }
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param args
+ * @param opts
+ * @param resolve
+ * @param reject
+ */
+function callInstance(pluginObj, methodName, args, opts, resolve, reject) {
+    if (opts === void 0) { opts = {}; }
+    args = setIndex(args, opts, resolve, reject);
+    if (instanceAvailability(pluginObj, methodName)) {
+        // eslint-disable-next-line prefer-spread
+        return pluginObj._objectInstance[methodName].apply(pluginObj._objectInstance, args);
+    }
+}
+/**
+ * @param pluginRef
+ */
+function getPlugin(pluginRef) {
+    if (typeof window !== 'undefined') {
+        return get(window, pluginRef);
+    }
+    return null;
+}
+/**
+ * @param element
+ * @param path
+ */
+function get(element, path) {
+    var paths = path.split('.');
+    var obj = element;
+    for (var i = 0; i < paths.length; i++) {
+        if (!obj) {
+            return null;
+        }
+        obj = obj[paths[i]];
+    }
+    return obj;
+}
+/**
+ * @param pluginName
+ * @param plugin
+ * @param method
+ */
+function pluginWarn(pluginName, plugin, method) {
+    if (method) {
+        console.warn('Native: tried calling ' + pluginName + '.' + method + ', but the ' + pluginName + ' plugin is not installed.');
+    }
+    else {
+        console.warn("Native: tried accessing the " + pluginName + " plugin but it's not installed.");
+    }
+    if (plugin) {
+        console.warn("Install the " + pluginName + " plugin: 'ionic cordova plugin add " + plugin + "'");
+    }
+}
+/**
+ * @private
+ * @param pluginName
+ * @param method
+ */
+function cordovaWarn(pluginName, method) {
+    if (typeof process === 'undefined') {
+        if (method) {
+            console.warn('Native: tried calling ' +
+                pluginName +
+                '.' +
+                method +
+                ', but Cordova is not available. Make sure to include cordova.js or run in a device/simulator');
+        }
+        else {
+            console.warn('Native: tried accessing the ' +
+                pluginName +
+                ' plugin but Cordova is not available. Make sure to include cordova.js or run in a device/simulator');
+        }
+    }
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param opts
+ * @private
+ */
+var wrap = function (pluginObj, methodName, opts) {
+    if (opts === void 0) { opts = {}; }
+    return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        if (opts.sync) {
+            // Sync doesn't wrap the plugin with a promise or observable, it returns the result as-is
+            return callCordovaPlugin(pluginObj, methodName, args, opts);
+        }
+        else if (opts.observable) {
+            return wrapObservable(pluginObj, methodName, args, opts);
+        }
+        else if (opts.eventObservable && opts.event) {
+            return wrapEventObservable(opts.event, opts.element);
+        }
+        else if (opts.otherPromise) {
+            return wrapOtherPromise(pluginObj, methodName, args, opts);
+        }
+        else {
+            return wrapPromise(pluginObj, methodName, args, opts);
+        }
+    };
+};
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param opts
+ * @private
+ */
+function wrapInstance(pluginObj, methodName, opts) {
+    if (opts === void 0) { opts = {}; }
+    return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        if (opts.sync) {
+            return callInstance(pluginObj, methodName, args, opts);
+        }
+        else if (opts.observable) {
+            return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
+                var pluginResult;
+                if (opts.destruct) {
+                    pluginResult = callInstance(pluginObj, methodName, args, opts, function () {
+                        var args = [];
+                        for (var _i = 0; _i < arguments.length; _i++) {
+                            args[_i] = arguments[_i];
+                        }
+                        return observer.next(args);
+                    }, function () {
+                        var args = [];
+                        for (var _i = 0; _i < arguments.length; _i++) {
+                            args[_i] = arguments[_i];
+                        }
+                        return observer.error(args);
+                    });
+                }
+                else {
+                    pluginResult = callInstance(pluginObj, methodName, args, opts, observer.next.bind(observer), observer.error.bind(observer));
+                }
+                if (pluginResult && pluginResult.error) {
+                    observer.error(pluginResult.error);
+                }
+                return function () {
+                    try {
+                        if (opts.clearWithArgs) {
+                            return callInstance(pluginObj, opts.clearFunction, args, opts, observer.next.bind(observer), observer.error.bind(observer));
+                        }
+                        return callInstance(pluginObj, opts.clearFunction, []);
+                    }
+                    catch (e) {
+                        console.warn('Unable to clear the previous observable watch for', pluginObj.constructor.getPluginName(), methodName);
+                        console.warn(e);
+                    }
+                };
+            });
+        }
+        else if (opts.otherPromise) {
+            return getPromise(function (resolve, reject) {
+                var result;
+                if (opts.destruct) {
+                    result = callInstance(pluginObj, methodName, args, opts, function () {
+                        var args = [];
+                        for (var _i = 0; _i < arguments.length; _i++) {
+                            args[_i] = arguments[_i];
+                        }
+                        return resolve(args);
+                    }, function () {
+                        var args = [];
+                        for (var _i = 0; _i < arguments.length; _i++) {
+                            args[_i] = arguments[_i];
+                        }
+                        return reject(args);
+                    });
+                }
+                else {
+                    result = callInstance(pluginObj, methodName, args, opts, resolve, reject);
+                }
+                if (result && result.then) {
+                    result.then(resolve, reject);
+                }
+                else {
+                    reject();
+                }
+            });
+        }
+        else {
+            var pluginResult_1, rej_1;
+            var p = getPromise(function (resolve, reject) {
+                if (opts.destruct) {
+                    pluginResult_1 = callInstance(pluginObj, methodName, args, opts, function () {
+                        var args = [];
+                        for (var _i = 0; _i < arguments.length; _i++) {
+                            args[_i] = arguments[_i];
+                        }
+                        return resolve(args);
+                    }, function () {
+                        var args = [];
+                        for (var _i = 0; _i < arguments.length; _i++) {
+                            args[_i] = arguments[_i];
+                        }
+                        return reject(args);
+                    });
+                }
+                else {
+                    pluginResult_1 = callInstance(pluginObj, methodName, args, opts, resolve, reject);
+                }
+                rej_1 = reject;
+            });
+            // Angular throws an error on unhandled rejection, but in this case we have already printed
+            // a warning that Cordova is undefined or the plugin is uninstalled, so there is no reason
+            // to error
+            if (pluginResult_1 && pluginResult_1.error) {
+                p.catch(function () { });
+                typeof rej_1 === 'function' && rej_1(pluginResult_1.error);
+            }
+            return p;
+        }
+    };
+}
+//# sourceMappingURL=common.js.map
+
+/***/ }),
+
 /***/ "AUh1":
 /*!************************************************!*\
   !*** ./node_modules/lodash-es/_baseIndexOf.js ***!
@@ -8439,6 +9060,76 @@ var asciiSize = Object(_baseProperty_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 
 /* harmony default export */ __webpack_exports__["default"] = (asciiSize);
 
+
+/***/ }),
+
+/***/ "Ao8F":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/geolocation/__ivy_ngcc__/ngx/index.js ***!
+  \*************************************************************************************/
+/*! exports provided: Geolocation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Geolocation", function() { return Geolocation; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @awesome-cordova-plugins/core */ "aagO");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+
+
+
+
+
+var Geolocation = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Geolocation, _super);
+    function Geolocation() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Geolocation.prototype.getCurrentPosition = function (options) { return Object(_awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "getCurrentPosition", { "callbackOrder": "reverse" }, arguments); };
+    /**
+     * Watch the current device's position.  Clear the watch by unsubscribing from
+     * Observable changes.
+     *
+     * ```typescript
+     * const subscription = this.geolocation.watchPosition()
+     *                               .filter((p) => p.coords !== undefined) //Filter Out Errors
+     *                               .subscribe(position => {
+     *   console.log(position.coords.longitude + ' ' + position.coords.latitude);
+     * });
+     *
+     * // To stop notifications
+     * subscription.unsubscribe();
+     * ```
+     *
+     * @param {GeolocationOptions} options  The [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions).
+     * @returns {Observable<Geoposition | PositionError>} Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
+     */
+    Geolocation.prototype.watchPosition = function (options) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (observer) {
+            var watchId = navigator.geolocation.watchPosition(observer.next.bind(observer), observer.next.bind(observer), options);
+            return function () { return navigator.geolocation.clearWatch(watchId); };
+        });
+    };
+    Geolocation.pluginName = "Geolocation";
+    Geolocation.plugin = "cordova-plugin-geolocation";
+    Geolocation.pluginRef = "navigator.geolocation";
+    Geolocation.repo = "https://github.com/apache/cordova-plugin-geolocation";
+    Geolocation.install = "ionic cordova plugin add cordova-plugin-geolocation --variable GEOLOCATION_USAGE_DESCRIPTION=\"To locate you\"";
+    Geolocation.installVariables = ["GEOLOCATION_USAGE_DESCRIPTION"];
+    Geolocation.platforms = ["Amazon Fire OS", "Android", "Browser", "iOS", "Windows"];
+Geolocation.ɵfac = function Geolocation_Factory(t) { return ɵGeolocation_BaseFactory(t || Geolocation); };
+Geolocation.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: Geolocation, factory: function (t) { return Geolocation.ɵfac(t); } });
+var ɵGeolocation_BaseFactory = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](Geolocation);
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](Geolocation, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], null, null); })();
+    return Geolocation;
+}(_awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__["AwesomeCordovaNativePlugin"]));
+
+
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9AYXdlc29tZS1jb3Jkb3ZhLXBsdWdpbnMvcGx1Z2lucy9nZW9sb2NhdGlvbi9uZ3gvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDM0MsT0FBTyx1Q0FBK0MsTUFBTSwrQkFBK0IsQ0FBQztBQUM1RixPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sTUFBTSxDQUFDOztBQUNsQztBQUdxQixJQTZKWSwrQkFBMEI7QUFBQztBQUV2QztBQUU0QjtBQUFNLElBTXJELHdDQUFrQixhQUFDLE9BQTRCO0FBS0osSUFEM0M7QUFDRjtBQUNFO0FBQ0U7QUFDRTtBQUNFO0FBQ0U7QUFDRTtBQUNFO0FBR1o7QUFBVztBQUFPO0FBQ0U7QUFHWjtBQUFXO0FBQU87QUFDRTtBQUVKLE9BRHJCO0FBQ0wsSUFBRSxtQ0FBYSxHQUFiLFVBQWMsT0FBNEI7QUFBSSxRQUM1QyxPQUFPLElBQUksVUFBVSxDQUE4QixVQUFDLFFBQWE7QUFBSSxZQUNuRSxJQUFNLE9BQU8sR0FBRyxTQUFTLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FDakQsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsUUFBUSxDQUFDLEVBQzVCLFFBQVEsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxFQUM1QixPQUFPLENBQ1IsQ0FBQztBQUNSLFlBQU0sT0FBTyxjQUFNLE9BQUEsU0FBUyxDQUFDLFdBQVcsQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLEVBQXpDLENBQXlDLENBQUM7QUFDN0QsUUFBSSxDQUFDLENBQUMsQ0FBQztBQUNQLElBQUUsQ0FBQztBQUNGO0FBQzBDO0FBQXVEO0FBQXFEO0FBQStFO0FBQTRJO0FBQXNFOytDQTVDdmIsVUFBVTs7Ozs7MEJBQ0w7QUFBQyxzQkFuS1A7QUFBRSxFQW1LK0IsMEJBQTBCO0FBQzFELFNBRFksV0FBVztBQUFJIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0YWJsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgQ29yZG92YSwgQXdlc29tZUNvcmRvdmFOYXRpdmVQbHVnaW4sIFBsdWdpbiB9IGZyb20gJ0Bhd2Vzb21lLWNvcmRvdmEtcGx1Z2lucy9jb3JlJztcbmltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICdyeGpzJztcblxuZGVjbGFyZSBjb25zdCBuYXZpZ2F0b3I6IGFueTtcblxuZXhwb3J0IGludGVyZmFjZSBDb29yZGluYXRlcyB7XG4gIC8qKlxuICAgKiBhIGRvdWJsZSByZXByZXNlbnRpbmcgdGhlIHBvc2l0aW9uJ3MgbGF0aXR1ZGUgaW4gZGVjaW1hbCBkZWdyZWVzLlxuICAgKi9cbiAgbGF0aXR1ZGU6IG51bWJlcjtcblxuICAvKipcbiAgICogQSBkb3VibGUgcmVwcmVzZW50aW5nIHRoZSBwb3NpdGlvbidzIGxvbmdpdHVkZSBpbiBkZWNpbWFsIGRlZ3JlZXMuXG4gICAqL1xuICBsb25naXR1ZGU6IG51bWJlcjtcblxuICAvKipcbiAgICogQSBkb3VibGUgcmVwcmVzZW50aW5nIHRoZSBhY2N1cmFjeSBvZiB0aGUgbGF0aXR1ZGUgYW5kIGxvbmdpdHVkZSBwcm9wZXJ0aWVzLFxuICAgKiBleHByZXNzZWQgaW4gbWV0ZXJzLlxuICAgKi9cbiAgYWNjdXJhY3k6IG51bWJlcjtcblxuICAvKipcbiAgICogQSBkb3VibGUgcmVwcmVzZW50aW5nIHRoZSBwb3NpdGlvbidzIGFsdGl0dWRlIGluIG1ldHJlcywgcmVsYXRpdmUgdG8gc2VhXG4gICAqIGxldmVsLiBUaGlzIHZhbHVlIGNhbiBiZSBudWxsIGlmIHRoZSBpbXBsZW1lbnRhdGlvbiBjYW5ub3QgcHJvdmlkZSB0aGUgZGF0YS5cbiAgICovXG4gIGFsdGl0dWRlOiBudW1iZXI7XG5cbiAgLyoqXG4gICAqIEEgZG91YmxlIHJlcHJlc2VudGluZyB0aGUgYWNjdXJhY3kgb2YgdGhlIGFsdGl0dWRlIGV4cHJlc3NlZCBpbiBtZXRlcnMuXG4gICAqIFRoaXMgdmFsdWUgY2FuIGJlIG51bGwuXG4gICAqL1xuICBhbHRpdHVkZUFjY3VyYWN5OiBudW1iZXI7XG5cbiAgLyoqXG4gICAqIEEgZG91YmxlIHJlcHJlc2VudGluZyB0aGUgZGlyZWN0aW9uIGluIHdoaWNoIHRoZSBkZXZpY2UgaXMgdHJhdmVsaW5nLiBUaGlzXG4gICAqIHZhbHVlLCBzcGVjaWZpZWQgaW4gZGVncmVlcywgaW5kaWNhdGVzIGhvdyBmYXIgb2ZmIGZyb20gaGVhZGluZyB0cnVlIG5vcnRoXG4gICAqIHRoZSBkZXZpY2UgaXMuIDAgZGVncmVlcyByZXByZXNlbnRzIHRydWUgbm9ydGgsIGFuZCB0aGUgZGlyZWN0aW9uIGlzXG4gICAqIGRldGVybWluZWQgY2xvY2t3aXNlICh3aGljaCBtZWFucyB0aGF0IGVhc3QgaXMgOTAgZGVncmVlcyBhbmQgd2VzdCBpcyAyNzBcbiAgICogZGVncmVlcykuIElmIHNwZWVkIGlzIDAsIGhlYWRpbmcgaXMgTmFOLiBJZiB0aGUgZGV2aWNlIGlzIHVuYWJsZSB0byBwcm92aWRlXG4gICAqIGhlYWRpbmcgaW5mb3JtYXRpb24sIHRoaXMgdmFsdWUgaXMgbnVsbC5cbiAgICovXG4gIGhlYWRpbmc6IG51bWJlcjtcblxuICAvKipcbiAgICogQSBkb3VibGUgcmVwcmVzZW50aW5nIHRoZSB2ZWxvY2l0eSBvZiB0aGUgZGV2aWNlIGluIG1ldGVycyBwZXIgc2Vjb25kLlxuICAgKiBUaGlzIHZhbHVlIGNhbiBiZSBudWxsLlxuICAgKi9cbiAgc3BlZWQ6IG51bWJlcjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBHZW9wb3NpdGlvbiB7XG4gIC8qKlxuICAgKiBBIENvb3JkaW5hdGVzIG9iamVjdCBkZWZpbmluZyB0aGUgY3VycmVudCBsb2NhdGlvblxuICAgKi9cbiAgY29vcmRzOiBDb29yZGluYXRlcztcblxuICAvKipcbiAgICogQSB0aW1lc3RhbXAgcmVwcmVzZW50aW5nIHRoZSB0aW1lIGF0IHdoaWNoIHRoZSBsb2NhdGlvbiB3YXMgcmV0cmlldmVkLlxuICAgKi9cbiAgdGltZXN0YW1wOiBudW1iZXI7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUG9zaXRpb25FcnJvciB7XG4gIC8qKlxuICAgKiBBIGNvZGUgdGhhdCBpbmRpY2F0ZXMgdGhlIGVycm9yIHRoYXQgb2NjdXJyZWRcbiAgICovXG4gIGNvZGU6IG51bWJlcjtcblxuICAvKipcbiAgICogQSBtZXNzYWdlIHRoYXQgY2FuIGRlc2NyaWJlIHRoZSBlcnJvciB0aGF0IG9jY3VycmVkXG4gICAqL1xuICBtZXNzYWdlOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgR2VvbG9jYXRpb25PcHRpb25zIHtcbiAgLyoqXG4gICAqIElzIGEgcG9zaXRpdmUgbG9uZyB2YWx1ZSBpbmRpY2F0aW5nIHRoZSBtYXhpbXVtIGFnZSBpbiBtaWxsaXNlY29uZHMgb2YgYVxuICAgKiBwb3NzaWJsZSBjYWNoZWQgcG9zaXRpb24gdGhhdCBpcyBhY2NlcHRhYmxlIHRvIHJldHVybi4gSWYgc2V0IHRvIDAsIGl0XG4gICAqIG1lYW5zIHRoYXQgdGhlIGRldmljZSBjYW5ub3QgdXNlIGEgY2FjaGVkIHBvc2l0aW9uIGFuZCBtdXN0IGF0dGVtcHQgdG9cbiAgICogcmV0cmlldmUgdGhlIHJlYWwgY3VycmVudCBwb3NpdGlvbi4gSWYgc2V0IHRvIEluZmluaXR5IHRoZSBkZXZpY2UgbXVzdFxuICAgKiByZXR1cm4gYSBjYWNoZWQgcG9zaXRpb24gcmVnYXJkbGVzcyBvZiBpdHMgYWdlLiBEZWZhdWx0OiAwLlxuICAgKi9cbiAgbWF4aW11bUFnZT86IG51bWJlcjtcblxuICAvKipcbiAgICogSXMgYSBwb3NpdGl2ZSBsb25nIHZhbHVlIHJlcHJlc2VudGluZyB0aGUgbWF4aW11bSBsZW5ndGggb2YgdGltZVxuICAgKiAoaW4gbWlsbGlzZWNvbmRzKSB0aGUgZGV2aWNlIGlzIGFsbG93ZWQgdG8gdGFrZSBpbiBvcmRlciB0byByZXR1cm4gYVxuICAgKiBwb3NpdGlvbi4gVGhlIGRlZmF1bHQgdmFsdWUgaXMgSW5maW5pdHksIG1lYW5pbmcgdGhhdCBnZXRDdXJyZW50UG9zaXRpb24oKVxuICAgKiB3b24ndCByZXR1cm4gdW50aWwgdGhlIHBvc2l0aW9uIGlzIGF2YWlsYWJsZS5cbiAgICovXG4gIHRpbWVvdXQ/OiBudW1iZXI7XG5cbiAgLyoqXG4gICAqIEluZGljYXRlcyB0aGUgYXBwbGljYXRpb24gd291bGQgbGlrZSB0byByZWNlaXZlIHRoZSBiZXN0IHBvc3NpYmxlIHJlc3VsdHMuXG4gICAqIElmIHRydWUgYW5kIGlmIHRoZSBkZXZpY2UgaXMgYWJsZSB0byBwcm92aWRlIGEgbW9yZSBhY2N1cmF0ZSBwb3NpdGlvbiwgaXRcbiAgICogd2lsbCBkbyBzby4gTm90ZSB0aGF0IHRoaXMgY2FuIHJlc3VsdCBpbiBzbG93ZXIgcmVzcG9uc2UgdGltZXMgb3IgaW5jcmVhc2VkXG4gICAqIHBvd2VyIGNvbnN1bXB0aW9uICh3aXRoIGEgR1BTIGNoaXAgb24gYSBtb2JpbGUgZGV2aWNlIGZvciBleGFtcGxlKS4gT24gdGhlXG4gICAqIG90aGVyIGhhbmQsIGlmIGZhbHNlLCB0aGUgZGV2aWNlIGNhbiB0YWtlIHRoZSBsaWJlcnR5IHRvIHNhdmUgcmVzb3VyY2VzIGJ5XG4gICAqIHJlc3BvbmRpbmcgbW9yZSBxdWlja2x5IGFuZC9vciB1c2luZyBsZXNzIHBvd2VyLiBEZWZhdWx0OiBmYWxzZS5cbiAgICpcbiAgICogQHR5cGUge2Jvb2xlYW59XG4gICAqL1xuICBlbmFibGVIaWdoQWNjdXJhY3k/OiBib29sZWFuO1xufVxuXG4vKipcbiAqIEBuYW1lIEdlb2xvY2F0aW9uXG4gKiBAcHJlbWllciBnZW9sb2NhdGlvblxuICogQGRlc2NyaXB0aW9uXG4gKiBUaGlzIHBsdWdpbiBwcm92aWRlcyBpbmZvcm1hdGlvbiBhYm91dCB0aGUgZGV2aWNlJ3MgbG9jYXRpb24sIHN1Y2ggYXMgbGF0aXR1ZGUgYW5kIGxvbmdpdHVkZS4gQ29tbW9uIHNvdXJjZXMgb2YgbG9jYXRpb24gaW5mb3JtYXRpb24gaW5jbHVkZSBHbG9iYWwgUG9zaXRpb25pbmcgU3lzdGVtIChHUFMpIGFuZCBsb2NhdGlvbiBpbmZlcnJlZCBmcm9tIG5ldHdvcmsgc2lnbmFscyBzdWNoIGFzIElQIGFkZHJlc3MsIFJGSUQsIFdpRmkgYW5kIEJsdWV0b290aCBNQUMgYWRkcmVzc2VzLCBhbmQgR1NNL0NETUEgY2VsbCBJRHMuXG4gKlxuICogIFRoaXMgQVBJIGlzIGJhc2VkIG9uIHRoZSBXM0MgR2VvbG9jYXRpb24gQVBJIFNwZWNpZmljYXRpb24sIGFuZCBvbmx5IGV4ZWN1dGVzIG9uIGRldmljZXMgdGhhdCBkb24ndCBhbHJlYWR5IHByb3ZpZGUgYW4gaW1wbGVtZW50YXRpb24uXG4gKlxuICogRm9yIGlPUyB5b3UgaGF2ZSB0byBhZGQgdGhpcyBjb25maWd1cmF0aW9uIHRvIHlvdXIgY29uZmlndXJhdGlvbi54bWwgZmlsZVxuICogYGBgeG1sXG4gKiA8ZWRpdC1jb25maWcgZmlsZT1cIiotSW5mby5wbGlzdFwiIG1vZGU9XCJtZXJnZVwiIHRhcmdldD1cIk5TTG9jYXRpb25XaGVuSW5Vc2VVc2FnZURlc2NyaXB0aW9uXCI+XG4gKiAgICA8c3RyaW5nPldlIHVzZSB5b3VyIGxvY2F0aW9uIGZvciBmdWxsIGZ1bmN0aW9uYWxpdHkgb2YgY2VydGFpbiBhcHAgZmVhdHVyZXMuPC9zdHJpbmc+XG4gKiA8L2VkaXQtY29uZmlnPlxuICogYGBgXG4gKiBAdXNhZ2VcbiAqXG4gKiBgYGB0eXBlc2NyaXB0XG4gKiBpbXBvcnQgeyBHZW9sb2NhdGlvbiB9IGZyb20gJ0Bhd2Vzb21lLWNvcmRvdmEtcGx1Z2lucy9nZW9sb2NhdGlvbi9uZ3gnO1xuICpcbiAqIC4uLlxuICpcbiAqIGNvbnN0cnVjdG9yKHByaXZhdGUgZ2VvbG9jYXRpb246IEdlb2xvY2F0aW9uKSB7fVxuICpcbiAqIC4uLlxuICpcbiAqIHRoaXMuZ2VvbG9jYXRpb24uZ2V0Q3VycmVudFBvc2l0aW9uKCkudGhlbigocmVzcCkgPT4ge1xuICogIC8vIHJlc3AuY29vcmRzLmxhdGl0dWRlXG4gKiAgLy8gcmVzcC5jb29yZHMubG9uZ2l0dWRlXG4gKiB9KS5jYXRjaCgoZXJyb3IpID0+IHtcbiAqICAgY29uc29sZS5sb2coJ0Vycm9yIGdldHRpbmcgbG9jYXRpb24nLCBlcnJvcik7XG4gKiB9KTtcbiAqXG4gKiBsZXQgd2F0Y2ggPSB0aGlzLmdlb2xvY2F0aW9uLndhdGNoUG9zaXRpb24oKTtcbiAqIHdhdGNoLnN1YnNjcmliZSgoZGF0YSkgPT4ge1xuICogIC8vIGRhdGEgY2FuIGJlIGEgc2V0IG9mIGNvb3JkaW5hdGVzLCBvciBhbiBlcnJvciAoaWYgYW4gZXJyb3Igb2NjdXJyZWQpLlxuICogIC8vIGRhdGEuY29vcmRzLmxhdGl0dWRlXG4gKiAgLy8gZGF0YS5jb29yZHMubG9uZ2l0dWRlXG4gKiB9KTtcbiAqIGBgYFxuICogQGludGVyZmFjZXNcbiAqIENvb3JkaW5hdGVzXG4gKiBHZW9wb3NpdGlvblxuICogUG9zaXRpb25FcnJvclxuICogR2VvbG9jYXRpb25PcHRpb25zXG4gKi9cbkBQbHVnaW4oe1xuICBwbHVnaW5OYW1lOiAnR2VvbG9jYXRpb24nLFxuICBwbHVnaW46ICdjb3Jkb3ZhLXBsdWdpbi1nZW9sb2NhdGlvbicsXG4gIHBsdWdpblJlZjogJ25hdmlnYXRvci5nZW9sb2NhdGlvbicsXG4gIHJlcG86ICdodHRwczovL2dpdGh1Yi5jb20vYXBhY2hlL2NvcmRvdmEtcGx1Z2luLWdlb2xvY2F0aW9uJyxcbiAgaW5zdGFsbDpcbiAgICAnaW9uaWMgY29yZG92YSBwbHVnaW4gYWRkIGNvcmRvdmEtcGx1Z2luLWdlb2xvY2F0aW9uIC0tdmFyaWFibGUgR0VPTE9DQVRJT05fVVNBR0VfREVTQ1JJUFRJT049XCJUbyBsb2NhdGUgeW91XCInLFxuICBpbnN0YWxsVmFyaWFibGVzOiBbJ0dFT0xPQ0FUSU9OX1VTQUdFX0RFU0NSSVBUSU9OJ10sXG4gIHBsYXRmb3JtczogWydBbWF6b24gRmlyZSBPUycsICdBbmRyb2lkJywgJ0Jyb3dzZXInLCAnaU9TJywgJ1dpbmRvd3MnXSxcbn0pXG5ASW5qZWN0YWJsZSgpXG5leHBvcnQgY2xhc3MgR2VvbG9jYXRpb24gZXh0ZW5kcyBBd2Vzb21lQ29yZG92YU5hdGl2ZVBsdWdpbiB7XG4gIC8qKlxuICAgKiBHZXQgdGhlIGRldmljZSdzIGN1cnJlbnQgcG9zaXRpb24uXG4gICAqXG4gICAqIEBwYXJhbSB7R2VvbG9jYXRpb25PcHRpb25zfSBvcHRpb25zICBUaGUgW2dlb2xvY2F0aW9uIG9wdGlvbnNdKGh0dHBzOi8vZGV2ZWxvcGVyLm1vemlsbGEub3JnL2VuLVVTL2RvY3MvV2ViL0FQSS9Qb3NpdGlvbk9wdGlvbnMpLlxuICAgKiBAcmV0dXJucyB7UHJvbWlzZTxHZW9wb3NpdGlvbj59IFJldHVybnMgYSBQcm9taXNlIHRoYXQgcmVzb2x2ZXMgd2l0aCB0aGUgW3Bvc2l0aW9uXShodHRwczovL2RldmVsb3Blci5tb3ppbGxhLm9yZy9lbi1VUy9kb2NzL1dlYi9BUEkvUG9zaXRpb24pIG9mIHRoZSBkZXZpY2UsIG9yIHJlamVjdHMgd2l0aCBhbiBlcnJvci5cbiAgICovXG4gIEBDb3Jkb3ZhKHtcbiAgICBjYWxsYmFja09yZGVyOiAncmV2ZXJzZScsXG4gIH0pXG4gIGdldEN1cnJlbnRQb3NpdGlvbihvcHRpb25zPzogR2VvbG9jYXRpb25PcHRpb25zKTogUHJvbWlzZTxHZW9wb3NpdGlvbj4ge1xuICAgIHJldHVybjtcbiAgfVxuXG4gIC8qKlxuICAgKiBXYXRjaCB0aGUgY3VycmVudCBkZXZpY2UncyBwb3NpdGlvbi4gIENsZWFyIHRoZSB3YXRjaCBieSB1bnN1YnNjcmliaW5nIGZyb21cbiAgICogT2JzZXJ2YWJsZSBjaGFuZ2VzLlxuICAgKlxuICAgKiBgYGB0eXBlc2NyaXB0XG4gICAqIGNvbnN0IHN1YnNjcmlwdGlvbiA9IHRoaXMuZ2VvbG9jYXRpb24ud2F0Y2hQb3NpdGlvbigpXG4gICAqICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC5maWx0ZXIoKHApID0+IHAuY29vcmRzICE9PSB1bmRlZmluZWQpIC8vRmlsdGVyIE91dCBFcnJvcnNcbiAgICogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLnN1YnNjcmliZShwb3NpdGlvbiA9PiB7XG4gICAqICAgY29uc29sZS5sb2cocG9zaXRpb24uY29vcmRzLmxvbmdpdHVkZSArICcgJyArIHBvc2l0aW9uLmNvb3Jkcy5sYXRpdHVkZSk7XG4gICAqIH0pO1xuICAgKlxuICAgKiAvLyBUbyBzdG9wIG5vdGlmaWNhdGlvbnNcbiAgICogc3Vic2NyaXB0aW9uLnVuc3Vic2NyaWJlKCk7XG4gICAqIGBgYFxuICAgKlxuICAgKiBAcGFyYW0ge0dlb2xvY2F0aW9uT3B0aW9uc30gb3B0aW9ucyAgVGhlIFtnZW9sb2NhdGlvbiBvcHRpb25zXShodHRwczovL2RldmVsb3Blci5tb3ppbGxhLm9yZy9lbi1VUy9kb2NzL1dlYi9BUEkvUG9zaXRpb25PcHRpb25zKS5cbiAgICogQHJldHVybnMge09ic2VydmFibGU8R2VvcG9zaXRpb24gfCBQb3NpdGlvbkVycm9yPn0gUmV0dXJucyBhbiBPYnNlcnZhYmxlIHRoYXQgbm90aWZpZXMgd2l0aCB0aGUgW3Bvc2l0aW9uXShodHRwczovL2RldmVsb3Blci5tb3ppbGxhLm9yZy9lbi1VUy9kb2NzL1dlYi9BUEkvUG9zaXRpb24pIG9mIHRoZSBkZXZpY2UsIG9yIGVycm9ycy5cbiAgICovXG4gIHdhdGNoUG9zaXRpb24ob3B0aW9ucz86IEdlb2xvY2F0aW9uT3B0aW9ucyk6IE9ic2VydmFibGU8R2VvcG9zaXRpb24gfCBQb3NpdGlvbkVycm9yPiB7XG4gICAgcmV0dXJuIG5ldyBPYnNlcnZhYmxlPEdlb3Bvc2l0aW9uIHwgUG9zaXRpb25FcnJvcj4oKG9ic2VydmVyOiBhbnkpID0+IHtcbiAgICAgIGNvbnN0IHdhdGNoSWQgPSBuYXZpZ2F0b3IuZ2VvbG9jYXRpb24ud2F0Y2hQb3NpdGlvbihcbiAgICAgICAgb2JzZXJ2ZXIubmV4dC5iaW5kKG9ic2VydmVyKSxcbiAgICAgICAgb2JzZXJ2ZXIubmV4dC5iaW5kKG9ic2VydmVyKSxcbiAgICAgICAgb3B0aW9uc1xuICAgICAgKTtcbiAgICAgIHJldHVybiAoKSA9PiBuYXZpZ2F0b3IuZ2VvbG9jYXRpb24uY2xlYXJXYXRjaCh3YXRjaElkKTtcbiAgICB9KTtcbiAgfVxufVxuIl19
 
 /***/ }),
 
@@ -13475,6 +14166,43 @@ function baseSampleSize(collection, n) {
 
 /***/ }),
 
+/***/ "FpJJ":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/cordova-property.js ***!
+  \************************************************************************************************/
+/*! exports provided: cordovaPropertyGet, cordovaPropertySet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cordovaPropertyGet", function() { return cordovaPropertyGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cordovaPropertySet", function() { return cordovaPropertySet; });
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ "AT/+");
+
+/**
+ * @param pluginObj
+ * @param key
+ */
+function cordovaPropertyGet(pluginObj, key) {
+    if (Object(_common__WEBPACK_IMPORTED_MODULE_0__["checkAvailability"])(pluginObj, key) === true) {
+        return Object(_common__WEBPACK_IMPORTED_MODULE_0__["getPlugin"])(pluginObj.constructor.getPluginRef())[key];
+    }
+    return null;
+}
+/**
+ * @param pluginObj
+ * @param key
+ * @param value
+ */
+function cordovaPropertySet(pluginObj, key, value) {
+    if (Object(_common__WEBPACK_IMPORTED_MODULE_0__["checkAvailability"])(pluginObj, key) === true) {
+        Object(_common__WEBPACK_IMPORTED_MODULE_0__["getPlugin"])(pluginObj.constructor.getPluginRef())[key] = value;
+    }
+}
+//# sourceMappingURL=cordova-property.js.map
+
+/***/ }),
+
 /***/ "Fsnq":
 /*!****************************************!*\
   !*** ./node_modules/lodash-es/size.js ***!
@@ -15761,6 +16489,41 @@ function castPath(value, object) {
 
 /* harmony default export */ __webpack_exports__["default"] = (castPath);
 
+
+/***/ }),
+
+/***/ "InXO":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/instance-property.js ***!
+  \*************************************************************************************************/
+/*! exports provided: instancePropertyGet, instancePropertySet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "instancePropertyGet", function() { return instancePropertyGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "instancePropertySet", function() { return instancePropertySet; });
+/**
+ * @param pluginObj
+ * @param key
+ */
+function instancePropertyGet(pluginObj, key) {
+    if (pluginObj._objectInstance && pluginObj._objectInstance[key]) {
+        return pluginObj._objectInstance[key];
+    }
+    return null;
+}
+/**
+ * @param pluginObj
+ * @param key
+ * @param value
+ */
+function instancePropertySet(pluginObj, key, value) {
+    if (pluginObj._objectInstance) {
+        pluginObj._objectInstance[key] = value;
+    }
+}
+//# sourceMappingURL=instance-property.js.map
 
 /***/ }),
 
@@ -19430,6 +20193,31 @@ function isNil(value) {
 
 /* harmony default export */ __webpack_exports__["default"] = (isNil);
 
+
+/***/ }),
+
+/***/ "M0H4":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/cordova.js ***!
+  \***************************************************************************************/
+/*! exports provided: cordova */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cordova", function() { return cordova; });
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ "AT/+");
+
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param config
+ * @param args
+ */
+function cordova(pluginObj, methodName, config, args) {
+    return Object(_common__WEBPACK_IMPORTED_MODULE_0__["wrap"])(pluginObj, methodName, config).apply(this, args);
+}
+//# sourceMappingURL=cordova.js.map
 
 /***/ }),
 
@@ -36805,7 +37593,7 @@ function getWrapDetails(source) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button style=\"color: #000;\"></ion-back-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"chartView('chartIcon')\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\n        style=\"margin: 0;\">\n        <ion-icon slot=\"icon-only\" name=\"{{iconViews.chartIcon}}\" style=\"color: #000;\"></ion-icon>\n      </ion-button>\n      <ion-button (click)=\"goToReports()\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\n        style=\"margin: 0;\">\n        <ion-icon slot=\"icon-only\" name=\"file-tray-full-outline\" style=\"color: #000;\"></ion-icon>\n      </ion-button>\n      <ion-button (click)='connbtn()'>\n        <ion-icon slot=\"icon-only\" name=\"{{iconCntBtn}}\" style=\"color: #000;\"></ion-icon>\n      </ion-button>\n      <ion-button (click)=\"paramsView('paramsIcon')\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\n        style=\"margin: 0;\">\n        <ion-icon slot=\"icon-only\" name=\"{{iconViews.paramsIcon}}\" style=\"color: #000;\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" color=\"tertiary\">\n\n  <ion-card [style.display]=\"iconViews.chartIcon === 'stats-chart'?'block':'none'\">\n    <ion-card-header>\n      <ion-card-subtitle>ChartLine</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <ion-grid>\n        <ion-row class=\"ion-align-items-center terminal-header\">\n        </ion-row>\n        <ion-row [style.display]=\"iconViews.chartIcon === 'stats-chart'?'block':'none'\">\n          <canvas baseChart [datasets]=\"chartData\" [chartType]=\"chartType\" [labels]=\"chartLabels\"\n            [options]=\"chartOptions\" [legend]=\"showLegend\"></canvas>\n        </ion-row>\n      </ion-grid>\n    </ion-card-content>\n  </ion-card>\n  <br>\n  <ion-card [style.display]=\"iconViews.paramsIcon === 'options'?'block':'none'\">\n    <ion-card-header>\n      <ion-card-subtitle>(required data)</ion-card-subtitle>\n      <ion-card-title>Process Parameters</ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Potencial Inicial (V)</ion-label>\n        <ion-input [(ngModel)]=\"params.pIni\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Potencial Final (V)</ion-label>\n        <ion-input [(ngModel)]=\"params.pFim\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Potencial do passo (V)</ion-label>\n        <ion-input [(ngModel)]=\"params.pPas\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Tempo do passo (s)</ion-label>\n        <ion-input [(ngModel)]=\"params.tPas\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Potencial do pulso (V)</ion-label>\n        <ion-input [(ngModel)]=\"params.pPul\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Tempo do pulso (s)</ion-label>\n        <ion-input [(ngModel)]=\"params.tPul\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Tempo de equilíbrio (s)</ion-label>\n        <ion-input [(ngModel)]=\"params.tEqu\"></ion-input>\n      </ion-item>\n      <ion-item class=\"item-padding\">\n        <ion-label position=\"stacked\">Int. Corrent</ion-label>\n        <ion-select [(ngModel)]=\"params.fEsc\">\n          <ion-select-option value=\"5\">Auto</ion-select-option> // tar\n          <ion-select-option value=\"0\">+/- 5uA</ion-select-option> //\n          <ion-select-option value=\"1\">+/- 10uA</ion-select-option>\n          <ion-select-option value=\"2\">+/- 20uA</ion-select-option>\n          <ion-select-option value=\"3\">+/- 50uA</ion-select-option>\n          <ion-select-option value=\"4\">+/- 100uA</ion-select-option>\n        </ion-select>\n      </ion-item>\n    </ion-card-content>\n  </ion-card>\n  <br>\n  <ion-grid>\n    <ion-row class=\"ion-align-items-center terminal-header\">\n      <ion-col>\n        <strong style=\"font-size: 14px;\">Terminal</strong>\n      </ion-col>\n      <ion-col style=\"text-align: end;\">\n        <ion-button (click)=\"hideView('terminalIcon')\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\n          style=\"margin: 0;\">\n          <ion-icon slot=\"icon-only\" name={{iconViews.terminalIcon}} style=\"color: #000;\"></ion-icon>\n        </ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row style=\"height: 10em;\" [style.display]=\"iconViews.terminalIcon === 'eye-off-outline'?'block':'none'\">\n      <ion-col style=\"padding: 0;\">\n        <ion-content #terminalView [scrollEvents]=\"true\" class=\"terminal\">\n          <p style=\"margin-block-start: 0em; margin-block-end: 0em;\" *ngFor='let line of terminal'\n            class={{line.color}}{{line.class}}>{{line.text}}</p>\n          <!-- ion-text *ngFor=\"let line of terminal\" class={{line.class}} color={{line.color}}>{{line.text}}<br></!-->\n        </ion-content>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-card>\n    <ion-card-content>\n      <ion-button color=\"tertiary\" expand=\"block\" (click)=\"actionBtn(btnDef.text)\" [disabled]=\"!ready\">{{btnDef.text}}\n      </ion-button>\n    </ion-card-content>\n  </ion-card>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button style=\"color: #000;\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"chartView('chartIcon')\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\r\n        style=\"margin: 0;\">\r\n        <ion-icon slot=\"icon-only\" name=\"{{iconViews.chartIcon}}\" style=\"color: #000;\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button (click)=\"goToReports()\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\r\n        style=\"margin: 0;\">\r\n        <ion-icon slot=\"icon-only\" name=\"file-tray-full-outline\" style=\"color: #000;\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button (click)='connbtn()'>\r\n        <ion-icon slot=\"icon-only\" name=\"{{iconCntBtn}}\" style=\"color: #000;\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button (click)=\"paramsView('paramsIcon')\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\r\n        style=\"margin: 0;\">\r\n        <ion-icon slot=\"icon-only\" name=\"{{iconViews.paramsIcon}}\" style=\"color: #000;\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"ion-padding\" color=\"tertiary\">\r\n\r\n  <ion-card [style.display]=\"iconViews.chartIcon === 'stats-chart'?'block':'none'\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>ChartLine</ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-grid>\r\n        <ion-row class=\"ion-align-items-center terminal-header\">\r\n        </ion-row>\r\n        <ion-row [style.display]=\"iconViews.chartIcon === 'stats-chart'?'block':'none'\">\r\n          <canvas baseChart [datasets]=\"chartData\" [chartType]=\"chartType\" [labels]=\"chartLabels\"\r\n            [options]=\"chartOptions\" [legend]=\"showLegend\"></canvas>\r\n        </ion-row>\r\n      </ion-grid>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <br>\r\n  <ion-card [style.display]=\"iconViews.paramsIcon === 'options'?'block':'none'\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>(required data)</ion-card-subtitle>\r\n      <ion-card-title>Process Parameters</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Potencial Inicial (V)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.pIni\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Potencial Final (V)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.pFim\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Potencial do passo (V)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.pPas\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Tempo do passo (s)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.tPas\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Potencial do pulso (V)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.pPul\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Tempo do pulso (s)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.tPul\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Tempo de equilíbrio (s)</ion-label>\r\n        <ion-input [(ngModel)]=\"params.tEqu\"></ion-input>\r\n      </ion-item>\r\n      <ion-item class=\"item-padding\">\r\n        <ion-label position=\"stacked\">Int. Corrent</ion-label>\r\n        <ion-select [(ngModel)]=\"params.fEsc\">\r\n          <ion-select-option value=\"5\">Auto</ion-select-option> // tar\r\n          <ion-select-option value=\"0\">+/- 5uA</ion-select-option> //\r\n          <ion-select-option value=\"1\">+/- 10uA</ion-select-option>\r\n          <ion-select-option value=\"2\">+/- 20uA</ion-select-option>\r\n          <ion-select-option value=\"3\">+/- 50uA</ion-select-option>\r\n          <ion-select-option value=\"4\">+/- 100uA</ion-select-option>\r\n        </ion-select>\r\n      </ion-item>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <br>\r\n  <ion-grid>\r\n    <ion-row class=\"ion-align-items-center terminal-header\">\r\n      <ion-col>\r\n        <strong style=\"font-size: 14px;\">Terminal</strong>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: end;\">\r\n        <ion-button (click)=\"hideView('terminalIcon')\" shape=\"round\" fill=\"clear\" size=\"small\" color=\"light\"\r\n          style=\"margin: 0;\">\r\n          <ion-icon slot=\"icon-only\" name={{iconViews.terminalIcon}} style=\"color: #000;\"></ion-icon>\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row style=\"height: 10em;\" [style.display]=\"iconViews.terminalIcon === 'eye-off-outline'?'block':'none'\">\r\n      <ion-col style=\"padding: 0;\">\r\n        <ion-content #terminalView [scrollEvents]=\"true\" class=\"terminal\">\r\n          <p style=\"margin-block-start: 0em; margin-block-end: 0em;\" *ngFor='let line of terminal'\r\n            class={{line.color}}{{line.class}}>{{line.text}}</p>\r\n          <!-- ion-text *ngFor=\"let line of terminal\" class={{line.class}} color={{line.color}}>{{line.text}}<br></!-->\r\n        </ion-content>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  <ion-card>\r\n    <ion-card-content>\r\n      <ion-button color=\"tertiary\" expand=\"block\" (click)=\"actionBtn(btnDef.text)\" [disabled]=\"!ready\">{{btnDef.text}}\r\n      </ion-button>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>");
 
 /***/ }),
 
@@ -44454,6 +45242,82 @@ var getPrototype = Object(_overArg_js__WEBPACK_IMPORTED_MODULE_0__["default"])(O
 
 /***/ }),
 
+/***/ "Uy5j":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/awesome-cordova-plugin.js ***!
+  \*******************************************************************************************/
+/*! exports provided: AwesomeCordovaNativePlugin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AwesomeCordovaNativePlugin", function() { return AwesomeCordovaNativePlugin; });
+/* harmony import */ var _decorators_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./decorators/common */ "AT/+");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util */ "xGWU");
+
+
+var AwesomeCordovaNativePlugin = /** @class */ (function () {
+    function AwesomeCordovaNativePlugin() {
+    }
+    /**
+     * Returns a boolean that indicates whether the plugin is installed
+     *
+     * @returns {boolean}
+     */
+    AwesomeCordovaNativePlugin.installed = function () {
+        var isAvailable = Object(_decorators_common__WEBPACK_IMPORTED_MODULE_0__["checkAvailability"])(this.pluginRef) === true;
+        return isAvailable;
+    };
+    /**
+     * Returns the original plugin object
+     */
+    AwesomeCordovaNativePlugin.getPlugin = function () {
+        if (typeof window !== 'undefined') {
+            return Object(_util__WEBPACK_IMPORTED_MODULE_1__["get"])(window, this.pluginRef);
+        }
+        return null;
+    };
+    /**
+     * Returns the plugin's name
+     */
+    AwesomeCordovaNativePlugin.getPluginName = function () {
+        var pluginName = this.pluginName;
+        return pluginName;
+    };
+    /**
+     * Returns the plugin's reference
+     */
+    AwesomeCordovaNativePlugin.getPluginRef = function () {
+        var pluginRef = this.pluginRef;
+        return pluginRef;
+    };
+    /**
+     * Returns the plugin's install name
+     */
+    AwesomeCordovaNativePlugin.getPluginInstallName = function () {
+        var plugin = this.plugin;
+        return plugin;
+    };
+    /**
+     * Returns the plugin's supported platforms
+     */
+    AwesomeCordovaNativePlugin.getSupportedPlatforms = function () {
+        var platform = this.platforms;
+        return platform;
+    };
+    AwesomeCordovaNativePlugin.pluginName = '';
+    AwesomeCordovaNativePlugin.pluginRef = '';
+    AwesomeCordovaNativePlugin.plugin = '';
+    AwesomeCordovaNativePlugin.repo = '';
+    AwesomeCordovaNativePlugin.platforms = [];
+    AwesomeCordovaNativePlugin.install = '';
+    return AwesomeCordovaNativePlugin;
+}());
+
+//# sourceMappingURL=awesome-cordova-plugin.js.map
+
+/***/ }),
+
 /***/ "V2x9":
 /*!*******************************************!*\
   !*** ./node_modules/moment/locale/tet.js ***!
@@ -49352,6 +50216,64 @@ function baseIsArrayBuffer(value) {
 
 /* harmony default export */ __webpack_exports__["default"] = (baseIsArrayBuffer);
 
+
+/***/ }),
+
+/***/ "aagO":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/index.js ***!
+  \**************************************************************************/
+/*! exports provided: AwesomeCordovaNativePlugin, checkAvailability, instanceAvailability, wrap, getPromise, cordova, cordovaFunctionOverride, cordovaInstance, cordovaPropertyGet, cordovaPropertySet, instancePropertyGet, instancePropertySet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "5npb");
+/* harmony import */ var _awesome_cordova_plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./awesome-cordova-plugin */ "Uy5j");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AwesomeCordovaNativePlugin", function() { return _awesome_cordova_plugin__WEBPACK_IMPORTED_MODULE_1__["AwesomeCordovaNativePlugin"]; });
+
+/* harmony import */ var _decorators_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./decorators/common */ "AT/+");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "checkAvailability", function() { return _decorators_common__WEBPACK_IMPORTED_MODULE_2__["checkAvailability"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "instanceAvailability", function() { return _decorators_common__WEBPACK_IMPORTED_MODULE_2__["instanceAvailability"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "wrap", function() { return _decorators_common__WEBPACK_IMPORTED_MODULE_2__["wrap"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getPromise", function() { return _decorators_common__WEBPACK_IMPORTED_MODULE_2__["getPromise"]; });
+
+/* harmony import */ var _decorators_cordova__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./decorators/cordova */ "M0H4");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cordova", function() { return _decorators_cordova__WEBPACK_IMPORTED_MODULE_3__["cordova"]; });
+
+/* harmony import */ var _decorators_cordova_function_override__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./decorators/cordova-function-override */ "zPAA");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cordovaFunctionOverride", function() { return _decorators_cordova_function_override__WEBPACK_IMPORTED_MODULE_4__["cordovaFunctionOverride"]; });
+
+/* harmony import */ var _decorators_cordova_instance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./decorators/cordova-instance */ "/nDd");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cordovaInstance", function() { return _decorators_cordova_instance__WEBPACK_IMPORTED_MODULE_5__["cordovaInstance"]; });
+
+/* harmony import */ var _decorators_cordova_property__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./decorators/cordova-property */ "FpJJ");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cordovaPropertyGet", function() { return _decorators_cordova_property__WEBPACK_IMPORTED_MODULE_6__["cordovaPropertyGet"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cordovaPropertySet", function() { return _decorators_cordova_property__WEBPACK_IMPORTED_MODULE_6__["cordovaPropertySet"]; });
+
+/* harmony import */ var _decorators_instance_property__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./decorators/instance-property */ "InXO");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "instancePropertyGet", function() { return _decorators_instance_property__WEBPACK_IMPORTED_MODULE_7__["instancePropertyGet"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "instancePropertySet", function() { return _decorators_instance_property__WEBPACK_IMPORTED_MODULE_7__["instancePropertySet"]; });
+
+/* harmony import */ var _decorators_interfaces__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./decorators/interfaces */ "/YwH");
+/* empty/unused harmony star reexport */
+
+// Decorators
+
+
+
+
+
+
+
+Object(_bootstrap__WEBPACK_IMPORTED_MODULE_0__["checkReady"])();
+
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -56121,6 +57043,49 @@ function uniqWith(array, comparator) {
 
 /* harmony default export */ __webpack_exports__["default"] = (uniqWith);
 
+
+/***/ }),
+
+/***/ "itIa":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/native-geocoder/__ivy_ngcc__/ngx/index.js ***!
+  \*****************************************************************************************/
+/*! exports provided: NativeGeocoder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NativeGeocoder", function() { return NativeGeocoder; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @awesome-cordova-plugins/core */ "aagO");
+
+
+
+
+var NativeGeocoder = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(NativeGeocoder, _super);
+    function NativeGeocoder() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NativeGeocoder.prototype.reverseGeocode = function (latitude, longitude, options) { return Object(_awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "reverseGeocode", { "callbackOrder": "reverse" }, arguments); };
+    NativeGeocoder.prototype.forwardGeocode = function (addressString, options) { return Object(_awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "forwardGeocode", { "callbackOrder": "reverse" }, arguments); };
+    NativeGeocoder.pluginName = "NativeGeocoder";
+    NativeGeocoder.plugin = "cordova-plugin-nativegeocoder";
+    NativeGeocoder.pluginRef = "nativegeocoder";
+    NativeGeocoder.repo = "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder";
+    NativeGeocoder.platforms = ["iOS", "Android"];
+NativeGeocoder.ɵfac = function NativeGeocoder_Factory(t) { return ɵNativeGeocoder_BaseFactory(t || NativeGeocoder); };
+NativeGeocoder.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: NativeGeocoder, factory: function (t) { return NativeGeocoder.ɵfac(t); } });
+var ɵNativeGeocoder_BaseFactory = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](NativeGeocoder);
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](NativeGeocoder, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], null, null); })();
+    return NativeGeocoder;
+}(_awesome_cordova_plugins_core__WEBPACK_IMPORTED_MODULE_2__["AwesomeCordovaNativePlugin"]));
+
+
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9AYXdlc29tZS1jb3Jkb3ZhLXBsdWdpbnMvcGx1Z2lucy9uYXRpdmUtZ2VvY29kZXIvbmd4L2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQzNDLE9BQU8sdUNBQStDLE1BQU0sK0JBQStCLENBQUM7O0FBQzVGO0FBSVUsSUFrQzBCLGtDQUEwQjtBQUFDO0FBRXZDO0FBRVQ7QUFBTSxJQVFuQix1Q0FBYyxhQUNaLFFBQWdCLEVBQ2hCLFNBQWlCLEVBQ2pCLE9BQStCO0FBTVIsSUFTekIsdUNBQWMsYUFBQyxhQUFxQixFQUFFLE9BQStCO0FBTXpDO0FBRXpCO0FBQTZEO0FBQ3hCO0FBSWxDO2tEQTVDUCxVQUFVOzs7OzswQkFDTDtBQUFDLHlCQXhDUDtBQUFFLEVBd0NrQywwQkFBMEI7QUFDN0QsU0FEWSxjQUFjO0FBQUkiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBDb3Jkb3ZhLCBBd2Vzb21lQ29yZG92YU5hdGl2ZVBsdWdpbiwgUGx1Z2luIH0gZnJvbSAnQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL2NvcmUnO1xuXG4vKipcbiAqIEBuYW1lIE5hdGl2ZSBHZW9jb2RlclxuICogQGRlc2NyaXB0aW9uXG4gKiBDb3Jkb3ZhIHBsdWdpbiBmb3IgbmF0aXZlIGZvcndhcmQgYW5kIHJldmVyc2UgZ2VvY29kaW5nXG4gKiBAdXNhZ2VcbiAqIGBgYHR5cGVzY3JpcHRcbiAqIGltcG9ydCB7IE5hdGl2ZUdlb2NvZGVyLCBOYXRpdmVHZW9jb2RlclJlc3VsdCwgTmF0aXZlR2VvY29kZXJPcHRpb25zIH0gZnJvbSAnQGF3ZXNvbWUtY29yZG92YS1wbHVnaW5zL25hdGl2ZS1nZW9jb2Rlci9uZ3gnO1xuICpcbiAqIGNvbnN0cnVjdG9yKHByaXZhdGUgbmF0aXZlR2VvY29kZXI6IE5hdGl2ZUdlb2NvZGVyKSB7IH1cbiAqXG4gKiAuLi5cbiAqXG4gKiBsZXQgb3B0aW9uczogTmF0aXZlR2VvY29kZXJPcHRpb25zID0ge1xuICogICAgIHVzZUxvY2FsZTogdHJ1ZSxcbiAqICAgICBtYXhSZXN1bHRzOiA1XG4gKiB9O1xuICpcbiAqIHRoaXMubmF0aXZlR2VvY29kZXIucmV2ZXJzZUdlb2NvZGUoNTIuNTA3MjA5NSwgMTMuMTQ1MjgxOCwgb3B0aW9ucylcbiAqICAgLnRoZW4oKHJlc3VsdDogTmF0aXZlR2VvY29kZXJSZXN1bHRbXSkgPT4gY29uc29sZS5sb2coSlNPTi5zdHJpbmdpZnkocmVzdWx0WzBdKSkpXG4gKiAgIC5jYXRjaCgoZXJyb3I6IGFueSkgPT4gY29uc29sZS5sb2coZXJyb3IpKTtcbiAqXG4gKiB0aGlzLm5hdGl2ZUdlb2NvZGVyLmZvcndhcmRHZW9jb2RlKCdCZXJsaW4nLCBvcHRpb25zKVxuICogICAudGhlbigocmVzdWx0OiBOYXRpdmVHZW9jb2RlclJlc3VsdFtdKSA9PiBjb25zb2xlLmxvZygnVGhlIGNvb3JkaW5hdGVzIGFyZSBsYXRpdHVkZT0nICsgcmVzdWx0WzBdLmxhdGl0dWRlICsgJyBhbmQgbG9uZ2l0dWRlPScgKyByZXN1bHRbMF0ubG9uZ2l0dWRlKSlcbiAqICAgLmNhdGNoKChlcnJvcjogYW55KSA9PiBjb25zb2xlLmxvZyhlcnJvcikpO1xuICogYGBgXG4gKiBAaW50ZXJmYWNlc1xuICogTmF0aXZlR2VvY29kZXJSZXN1bHRcbiAqIE5hdGl2ZUdlb2NvZGVyT3B0aW9uc1xuICovXG5AUGx1Z2luKHtcbiAgcGx1Z2luTmFtZTogJ05hdGl2ZUdlb2NvZGVyJyxcbiAgcGx1Z2luOiAnY29yZG92YS1wbHVnaW4tbmF0aXZlZ2VvY29kZXInLFxuICBwbHVnaW5SZWY6ICduYXRpdmVnZW9jb2RlcicsXG4gIHJlcG86ICdodHRwczovL2dpdGh1Yi5jb20vc2ViYXN0aWFuYmFhci9jb3Jkb3ZhLXBsdWdpbi1uYXRpdmVnZW9jb2RlcicsXG4gIHBsYXRmb3JtczogWydpT1MnLCAnQW5kcm9pZCddLFxufSlcbkBJbmplY3RhYmxlKClcbmV4cG9ydCBjbGFzcyBOYXRpdmVHZW9jb2RlciBleHRlbmRzIEF3ZXNvbWVDb3Jkb3ZhTmF0aXZlUGx1Z2luIHtcbiAgLyoqXG4gICAqIFJldmVyc2UgZ2VvY29kZSBhIGdpdmVuIGxhdGl0dWRlIGFuZCBsb25naXR1ZGUgdG8gZmluZCBsb2NhdGlvbiBhZGRyZXNzXG4gICAqXG4gICAqIEBwYXJhbSBsYXRpdHVkZSB7bnVtYmVyfSBUaGUgbGF0aXR1ZGVcbiAgICogQHBhcmFtIGxvbmdpdHVkZSB7bnVtYmVyfSBUaGUgbG9uZ2l0dWRlXG4gICAqIEBwYXJhbSBvcHRpb25zIHtOYXRpdmVHZW9jb2Rlck9wdGlvbnN9IFRoZSBvcHRpb25zXG4gICAqIEByZXR1cm5zIHtQcm9taXNlPE5hdGl2ZUdlb2NvZGVyUmVzdWx0W10+fVxuICAgKi9cbiAgQENvcmRvdmEoe1xuICAgIGNhbGxiYWNrT3JkZXI6ICdyZXZlcnNlJyxcbiAgfSlcbiAgcmV2ZXJzZUdlb2NvZGUoXG4gICAgbGF0aXR1ZGU6IG51bWJlcixcbiAgICBsb25naXR1ZGU6IG51bWJlcixcbiAgICBvcHRpb25zPzogTmF0aXZlR2VvY29kZXJPcHRpb25zXG4gICk6IFByb21pc2U8TmF0aXZlR2VvY29kZXJSZXN1bHRbXT4ge1xuICAgIHJldHVybjtcbiAgfVxuXG4gIC8qKlxuICAgKiBGb3J3YXJkIGdlb2NvZGUgYSBnaXZlbiBhZGRyZXNzIHRvIGZpbmQgY29vcmRpbmF0ZXNcbiAgICpcbiAgICogQHBhcmFtIGFkZHJlc3NTdHJpbmcge3N0cmluZ30gVGhlIGFkZHJlc3MgdG8gYmUgZ2VvY29kZWRcbiAgICogQHBhcmFtIG9wdGlvbnMge05hdGl2ZUdlb2NvZGVyT3B0aW9uc30gVGhlIG9wdGlvbnNcbiAgICogQHJldHVybnMge1Byb21pc2U8TmF0aXZlR2VvY29kZXJSZXN1bHRbXT59XG4gICAqL1xuICBAQ29yZG92YSh7XG4gICAgY2FsbGJhY2tPcmRlcjogJ3JldmVyc2UnLFxuICB9KVxuICBmb3J3YXJkR2VvY29kZShhZGRyZXNzU3RyaW5nOiBzdHJpbmcsIG9wdGlvbnM/OiBOYXRpdmVHZW9jb2Rlck9wdGlvbnMpOiBQcm9taXNlPE5hdGl2ZUdlb2NvZGVyUmVzdWx0W10+IHtcbiAgICByZXR1cm47XG4gIH1cbn1cblxuLyoqXG4gKiBFbmNhcHN1bGF0ZXMgZm9ybWF0IGluZm9ybWF0aW9uIGFib3V0IGEgZ2VvY29kaW5nIHJlc3VsdC5cbiAqIG1vcmUgSW5mbzpcbiAqICAtIGh0dHBzOi8vZGV2ZWxvcGVyLmFwcGxlLmNvbS9kb2N1bWVudGF0aW9uL2NvcmVsb2NhdGlvbi9jbHBsYWNlbWFya1xuICogIC0gaHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vcmVmZXJlbmNlL2FuZHJvaWQvbG9jYXRpb24vQWRkcmVzcy5odG1sXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgTmF0aXZlR2VvY29kZXJSZXN1bHQge1xuICAvKipcbiAgICogVGhlIGxhdGl0dWRlLlxuICAgKi9cbiAgbGF0aXR1ZGU6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBsb25naXR1ZGUuXG4gICAqL1xuICBsb25naXR1ZGU6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBjb3VudHJ5IGNvZGUuXG4gICAqL1xuICBjb3VudHJ5Q29kZTogc3RyaW5nO1xuICAvKipcbiAgICogVGhlIGNvdW50cnkgbmFtZS5cbiAgICovXG4gIGNvdW50cnlOYW1lOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgcG9zdGFsIGNvZGUuXG4gICAqL1xuICBwb3N0YWxDb2RlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgYWRtaW5pc3RyYXRpdmVBcmVhLlxuICAgKi9cbiAgYWRtaW5pc3RyYXRpdmVBcmVhOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgc3ViQWRtaW5pc3RyYXRpdmVBcmVhLlxuICAgKi9cbiAgc3ViQWRtaW5pc3RyYXRpdmVBcmVhOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgbG9jYWxpdHkuXG4gICAqL1xuICBsb2NhbGl0eTogc3RyaW5nO1xuICAvKipcbiAgICogVGhlIHN1YkxvY2FsaXR5LlxuICAgKi9cbiAgc3ViTG9jYWxpdHk6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSB0aG9yb3VnaGZhcmUuXG4gICAqL1xuICB0aG9yb3VnaGZhcmU6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBzdWJUaG9yb3VnaGZhcmUuXG4gICAqL1xuICBzdWJUaG9yb3VnaGZhcmU6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBhcmVhc09mSW50ZXJlc3RcbiAgICovXG4gIGFyZWFzT2ZJbnRlcmVzdDogc3RyaW5nW107XG59XG5cbi8qKlxuICogT3B0aW9ucyBmb3IgcmV2ZXJzZSBhbmQgZm9yd2FyZCBnZW9jb2RpbmcuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgTmF0aXZlR2VvY29kZXJPcHRpb25zIHtcbiAgLyoqXG4gICAqIFRoZSBsb2NhbGUgdG8gdXNlIHdoZW4gcmV0dXJuaW5nIHRoZSBhZGRyZXNzIGluZm9ybWF0aW9uLlxuICAgKiBJZiBzZXQgdG8gJ2ZhbHNlJyB0aGUgbG9jYWxlIHdpbGwgYWx3YXlzIGJlICdlbl9VUycuXG4gICAqIERlZmF1bHQgaXMgJ3RydWUnXG4gICAqL1xuICB1c2VMb2NhbGU6IGJvb2xlYW47XG4gIC8qKlxuICAgKiBUaGUgZGVmYXVsdCBsb2NhbGUgdG8gdXNlIHdoZW4gcmV0dXJuaW5nIHRoZSBhZGRyZXNzIGluZm9ybWF0aW9uLlxuICAgKiBlLmcuOiAnZmEtSVInIG9yICdkZV9ERScuXG4gICAqL1xuICBkZWZhdWx0TG9jYWxlPzogc3RyaW5nO1xuICAvKipcbiAgICogVGhlIG1heGltdW0gbnVtYmVyIG9mIHJlc3VsdCB0byByZXR1cm4gKG1heCBpcyA1KS5cbiAgICogRGVmYXVsdCBpcyAxXG4gICAqL1xuICBtYXhSZXN1bHRzOiBudW1iZXI7XG59XG4iXX0=
 
 /***/ }),
 
@@ -63160,9 +64125,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_chart_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./chart.page.html */ "OCrQ");
 /* harmony import */ var _chart_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chart.page.scss */ "4f55");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_native_serial_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/serial/ngx */ "CRN2");
-/* harmony import */ var _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/native-audio/ngx */ "fLLL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _ionic_native_serial_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/serial/ngx */ "CRN2");
+/* harmony import */ var _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/native-audio/ngx */ "fLLL");
+/* harmony import */ var _awesome_cordova_plugins_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @awesome-cordova-plugins/geolocation/ngx */ "Ao8F");
+/* harmony import */ var _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @awesome-cordova-plugins/native-geocoder/ngx */ "itIa");
+
+
+
 
 
 
@@ -63171,12 +64142,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ChartPage = class ChartPage {
-    constructor(serial, route, router, zone, nativeAudio) {
+    constructor(serial, route, router, zone, nativeAudio, toastController, geolocation, nativeGeocoder) {
         this.serial = serial;
         this.route = route;
         this.router = router;
         this.zone = zone;
         this.nativeAudio = nativeAudio;
+        this.toastController = toastController;
+        this.geolocation = geolocation;
+        this.nativeGeocoder = nativeGeocoder;
         // Data Line Chart
         this.chartData = [{ data: [], label: '' }];
         this.chartType = "line";
@@ -63262,6 +64236,7 @@ let ChartPage = class ChartPage {
                 onZoomComplete: function ({ chart }) { console.log(`I was zoomed!!!`); }
             },
         };
+        this.reports = [];
         this.params = {
             op: 'DPV',
             fEsc: "5",
@@ -63415,6 +64390,10 @@ let ChartPage = class ChartPage {
                 this.configView();
             }
         });
+        let reportJson = localStorage.getItem('reportDB');
+        if (reportJson != null) {
+            this.reports = JSON.parse(reportJson);
+        }
         this.communicate();
     }
     communicate() {
@@ -63538,26 +64517,88 @@ let ChartPage = class ChartPage {
         }
     }
     generateReport() {
-        this.entryTerminal('entrySystem', "--------------------/Relatorio/--------------------");
-        this.entryTerminal('entrySystem', "Nome do Operador: " + this.dataForReport.name);
-        this.entryTerminal('entrySystem', "N° de Matricula do Operador: " + this.dataForReport.registerOperator);
-        this.entryTerminal('entrySystem', "--------------------///--------------------");
-        this.entryTerminal('entrySystem', "Nome do Paciente: " + this.dataForReport.nome);
-        this.entryTerminal('entrySystem', "CPF do Paciente: " + this.dataForReport.cpf);
-        this.entryTerminal('entrySystem', "Idade do Paciente: " + this.dataForReport.idade);
-        this.entryTerminal('entrySystem', "Peso do Paciente: " + this.dataForReport.peso);
-        this.entryTerminal('entrySystem', "--------------------///--------------------");
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            //Informações do relátorio sendo geradas
+            //DATA
+            const timeElapsed = Date.now();
+            const today = new Date(timeElapsed);
+            let data = today.toLocaleString();
+            let ob;
+            let location = {
+                latitude: (yield this.geolocation.getCurrentPosition()).coords.latitude,
+                longitude: (yield this.geolocation.getCurrentPosition()).coords.longitude,
+            };
+            let options = {
+                useLocale: true,
+                maxResults: 5
+            };
+            this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options)
+                .then((result) => {
+                this.entryTerminal('entryIn', JSON.stringify(result[0]));
+                const obj = JSON.parse(JSON.stringify(result[0]));
+                ob = obj;
+                this.entryTerminal('entryOut', obj.latitude);
+                this.entryTerminal('entryOut', obj.longitude);
+                this.entryTerminal('entryOut', obj.countryCode);
+                //report.countryCode = obj.countryCode;
+                this.entryTerminal('entryOut', obj.countryName);
+                //report.countryName = obj.countryName;
+                this.entryTerminal('entryOut', obj.postalCode);
+                // report.postalCode = obj.postalCode;
+                this.entryTerminal('entryOut', obj.administrativeArea);
+                //report.administrativeArea = obj.administrativeArea;
+                this.entryTerminal('entryOut', obj.subAdministrative);
+                //report.subAdministrative = obj.subAdministrative;
+                this.entryTerminal('entryOut', obj.sublocality);
+                // report.sublocality = obj.sublocality;
+                this.entryTerminal('entryOut', obj.thoroughfare);
+                // report.thoroughfare = obj.thoroughfare;
+                this.entryTerminal('entryOut', obj.subThoroughfare);
+                report.subThoroughfare = obj.subThoroughfare;
+            }).catch((error) => console.log(error));
+            let report = {
+                nameOperator: this.dataForReport.name,
+                registerOperator: this.dataForReport.registerOperator,
+                namePatient: this.dataForReport.nome,
+                cpfPatient: this.dataForReport.cpf,
+                agePatient: this.dataForReport.idade,
+                weightPatient: this.dataForReport.peso,
+                id: this.reports.length + 1,
+                currentData: data,
+                latitude: (yield this.geolocation.getCurrentPosition()).coords.latitude,
+                longitude: (yield this.geolocation.getCurrentPosition()).coords.longitude,
+                countryCode: ob.countryCode,
+                countryName: ob.countryName,
+                postalCode: ob.postalCode,
+                administrativeArea: ob.administrativeArea,
+                subAdministrativeArea: ob.subAdministrativeArea,
+                subLocality: ob.subLocality,
+                thoroughfare: ob.thoroughfare,
+                subThoroughfare: ob.subThoroughfare,
+            };
+            this.reports.push(report);
+            localStorage.setItem('reportDB', JSON.stringify(this.reports));
+            const toast = yield this.toastController.create({
+                message: "Generated Report!",
+                duration: 2000,
+                position: 'middle',
+            });
+            toast.present();
+        });
     }
     goToReports() {
         this.router.navigate(['/reports']);
     }
 };
 ChartPage.ctorParameters = () => [
-    { type: _ionic_native_serial_ngx__WEBPACK_IMPORTED_MODULE_5__["Serial"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _ionic_native_serial_ngx__WEBPACK_IMPORTED_MODULE_6__["Serial"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"] },
-    { type: _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_6__["NativeAudio"] }
+    { type: _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_7__["NativeAudio"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] },
+    { type: _awesome_cordova_plugins_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__["Geolocation"] },
+    { type: _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_9__["NativeGeocoder"] }
 ];
 ChartPage.propDecorators = {
     content: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: ['terminalView',] }]
@@ -72837,6 +73878,55 @@ function unescape(string) {
 
 /***/ }),
 
+/***/ "xGWU":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/util.js ***!
+  \*************************************************************************/
+/*! exports provided: get, getPromise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPromise", function() { return getPromise; });
+/**
+ * @param element
+ * @param path
+ * @private
+ */
+function get(element, path) {
+    var paths = path.split('.');
+    var obj = element;
+    for (var i = 0; i < paths.length; i++) {
+        if (!obj) {
+            return null;
+        }
+        obj = obj[paths[i]];
+    }
+    return obj;
+}
+/**
+ * @param callback
+ * @private
+ */
+function getPromise(callback) {
+    if (callback === void 0) { callback = function () { }; }
+    var tryNativePromise = function () {
+        if (typeof Promise === 'function' || (typeof window !== 'undefined' && window.Promise)) {
+            return new Promise(function (resolve, reject) {
+                callback(resolve, reject);
+            });
+        }
+        else {
+            console.error('No Promise support or polyfill found. To enable Ionic Native support, please add the es6-promise polyfill before this script, or run with a library like Angular or on a recent browser.');
+        }
+    };
+    return tryNativePromise();
+}
+//# sourceMappingURL=util.js.map
+
+/***/ }),
+
 /***/ "xTp0":
 /*!**************************************************!*\
   !*** ./node_modules/lodash-es/_createBaseFor.js ***!
@@ -77244,6 +78334,51 @@ function isStrictComparable(value) {
 
 /* harmony default export */ __webpack_exports__["default"] = (isStrictComparable);
 
+
+/***/ }),
+
+/***/ "zPAA":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/@awesome-cordova-plugins/core/__ivy_ngcc__/decorators/cordova-function-override.js ***!
+  \*********************************************************************************************************/
+/*! exports provided: cordovaFunctionOverride */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cordovaFunctionOverride", function() { return cordovaFunctionOverride; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common */ "AT/+");
+
+
+/**
+ * @param pluginObj
+ * @param methodName
+ */
+function overrideFunction(pluginObj, methodName) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
+        var availabilityCheck = Object(_common__WEBPACK_IMPORTED_MODULE_1__["checkAvailability"])(pluginObj, methodName);
+        if (availabilityCheck === true) {
+            var pluginInstance_1 = Object(_common__WEBPACK_IMPORTED_MODULE_1__["getPlugin"])(pluginObj.constructor.getPluginRef());
+            pluginInstance_1[methodName] = observer.next.bind(observer);
+            return function () { return (pluginInstance_1[methodName] = function () { }); };
+        }
+        else {
+            observer.error(availabilityCheck);
+            observer.complete();
+        }
+    });
+}
+/**
+ * @param pluginObj
+ * @param methodName
+ * @param args
+ */
+function cordovaFunctionOverride(pluginObj, methodName, args) {
+    if (args === void 0) { args = []; }
+    return overrideFunction(pluginObj, methodName);
+}
+//# sourceMappingURL=cordova-function-override.js.map
 
 /***/ }),
 

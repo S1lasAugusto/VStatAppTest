@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\augus\Downloads\VStatAppTest\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\augus\Documents\Projetos Ionic\VStatAppTest\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -83,7 +83,7 @@ AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu menuId=\"main-menu\" content-id=\"main\">\n    <ion-header>\n      <ion-toolbar>\n      <ion-title>Manager</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n      <ion-list>\n        <ion-item>\n          <ion-icon slot=\"start\" name=\"settings-outline\"></ion-icon>\n          <ion-label>Settings</ion-label>\n        </ion-item>\n        <ion-item>\n          <ion-icon slot=\"start\" name=\"moon-outline\"></ion-icon>\n          <ion-label>Dark Mode</ion-label>\n        </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n  <ion-menu menuId=\"main-menu\" content-id=\"main\">\r\n    <ion-header>\r\n      <ion-toolbar>\r\n      <ion-title>Manager</ion-title>\r\n      </ion-toolbar>\r\n    </ion-header>\r\n\r\n    <ion-content>\r\n      <ion-list>\r\n        <ion-item>\r\n          <ion-icon slot=\"start\" name=\"settings-outline\"></ion-icon>\r\n          <ion-label>Settings</ion-label>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-icon slot=\"start\" name=\"moon-outline\"></ion-icon>\r\n          <ion-label>Dark Mode</ion-label>\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-content>\r\n  </ion-menu>\r\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\r\n</ion-app>\r\n");
 
 /***/ }),
 

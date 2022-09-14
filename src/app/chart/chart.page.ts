@@ -7,6 +7,7 @@ import { Label } from 'ng2-charts';
 import { BehaviorSubject } from 'rxjs';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
 
 export interface TimeSpan {
   minutes: number;
@@ -210,7 +211,8 @@ export class ChartPage implements OnInit {
     private zone: NgZone,
     private nativeAudio: NativeAudio,
     private toastController: ToastController,
-    private geolocation: Geolocation
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder
   ) { }
 
   entryTerminal(color, entry) {
@@ -464,6 +466,46 @@ export class ChartPage implements OnInit {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     let data = today.toLocaleString();
+   let ob: any;
+
+    let location = {
+      latitude: (await this.geolocation.getCurrentPosition()).coords.latitude,
+      longitude: (await this.geolocation.getCurrentPosition()).coords.longitude,
+    }
+
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
+
+    this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options)
+      .then((result: NativeGeocoderResult[]) => {
+
+        this.entryTerminal('entryIn', JSON.stringify(result[0]))
+        const obj = JSON.parse(JSON.stringify(result[0]));
+        ob = obj
+        this.entryTerminal('entryOut', obj.latitude);
+        this.entryTerminal('entryOut', obj.longitude);
+        this.entryTerminal('entryOut', obj.countryCode);
+        //report.countryCode = obj.countryCode;
+        this.entryTerminal('entryOut', obj.countryName);
+        //report.countryName = obj.countryName;
+        this.entryTerminal('entryOut', obj.postalCode);
+        // report.postalCode = obj.postalCode;
+        this.entryTerminal('entryOut', obj.administrativeArea);
+        //report.administrativeArea = obj.administrativeArea;
+        this.entryTerminal('entryOut', obj.subAdministrative);
+        //report.subAdministrative = obj.subAdministrative;
+        this.entryTerminal('entryOut', obj.sublocality);
+        // report.sublocality = obj.sublocality;
+        this.entryTerminal('entryOut', obj.thoroughfare);
+        // report.thoroughfare = obj.thoroughfare;
+        this.entryTerminal('entryOut', obj.subThoroughfare);
+        report.subThoroughfare = obj.subThoroughfare;
+      }
+
+      ).catch((error: any) => console.log(error));
+
 
     let report = {
       nameOperator: this.dataForReport.name,
@@ -476,8 +518,17 @@ export class ChartPage implements OnInit {
       currentData: data,
       latitude: (await this.geolocation.getCurrentPosition()).coords.latitude,
       longitude: (await this.geolocation.getCurrentPosition()).coords.longitude,
+      countryCode: ob.countryCode,
+      countryName: ob.countryName,
+      postalCode: ob.postalCode,
+      administrativeArea: ob.administrativeArea,
+      subAdministrativeArea: ob.subAdministrativeArea,
+      subLocality: ob.subLocality,
+      thoroughfare: ob.thoroughfare,
+      subThoroughfare: ob.subThoroughfare,
     }
-   
+
+
     this.reports.push(report);
     localStorage.setItem('reportDB', JSON.stringify(this.reports));
 

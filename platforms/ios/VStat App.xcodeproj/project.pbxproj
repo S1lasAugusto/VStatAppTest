@@ -31,6 +31,7 @@
 		CBE3356389714F0E8E824F03 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7C1D7FC4F74281A21CAE01 /* AudioToolbox.framework */; };
 		CF16D8462E13419A952CBD28 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9156B8289E4913A18C7248 /* CDVLocation.m */; };
 		1278D340890641D291863E07 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336A948E9B354C949DC9AE75 /* CoreLocation.framework */; };
+		E278D744FD1F4E8F8B1F7DF8 /* NativeGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B06D4703A85466E9E791D4E /* NativeGeocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		9B9156B8289E4913A18C7248 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		5BB00EF3AD8A47DC843B961F /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		336A948E9B354C949DC9AE75 /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7B06D4703A85466E9E791D4E /* NativeGeocoder.swift */ = {isa = PBXFileReference; name = "NativeGeocoder.swift"; path = "cordova-plugin-nativegeocoder/NativeGeocoder.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		9192F4F1BA0640C08DEC29CA /* NativeGeocoder-Bridging-Header.h */ = {isa = PBXFileReference; name = "NativeGeocoder-Bridging-Header.h"; path = "cordova-plugin-nativegeocoder/NativeGeocoder-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +248,8 @@
 				0BA71A0435DB4BD69E2E85CE /* NativeAudioAsset.h */,
 				9B9156B8289E4913A18C7248 /* CDVLocation.m */,
 				5BB00EF3AD8A47DC843B961F /* CDVLocation.h */,
+				7B06D4703A85466E9E791D4E /* NativeGeocoder.swift */,
+				9192F4F1BA0640C08DEC29CA /* NativeGeocoder-Bridging-Header.h */,
 			);
 			name = Plugins;
 			path = "VStat App/Plugins";
@@ -385,6 +390,7 @@
 				0591E4E14C1845B4BBC18F70 /* NativeAudio.m in Sources */,
 				5CA85D091B2E4289B30EDF36 /* NativeAudioAsset.m in Sources */,
 				CF16D8462E13419A952CBD28 /* CDVLocation.m in Sources */,
+				E278D744FD1F4E8F8B1F7DF8 /* NativeGeocoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +427,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -444,6 +454,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -488,6 +501,10 @@
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 1;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -530,6 +547,9 @@
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 1;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

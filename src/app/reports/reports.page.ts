@@ -41,6 +41,7 @@ export class ReportsPage implements OnInit {
   async viewReport(report) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
+      mode: 'ios',
       header: 'Report View',
       subHeader: 'ID:' + report.id,
       message: '-----------------------//----------------------- ' + '<br>' +
@@ -53,7 +54,16 @@ export class ReportsPage implements OnInit {
         'Patient Weight: ' + report.weightPatient + '<br>' +
         '-----------------------//----------------------- ' +
         'Latitude: ' + report.latitude + '<br>' +
-        'Longitude: ' + report.longitude + '<br>',
+        'Longitude: ' + report.longitude + '<br>' +
+        '-----------------------//----------------------- ' +
+        'Country Code: ' + report.countryCode + '<br>' +
+        'Country Name: ' + report.countryName + '<br>' +
+        'Postal Code: ' + report.postalCode + '<br>' +
+        'Administrative Area: ' + report.administrativeArea + '<br>' +
+        'Sub Administrative: ' + report.subAdministrativeArea + '<br>' +
+        'Sub Locality: ' + report.subLocality + '<br>' +
+        'Thoroughfare: ' + report.thoroughfare + '<br>' +
+        'subThoroughfare: ' + report.subThoroughfare + '<br>',
       buttons: ['OK'],
     });
 

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"goToChart()\">\n        <ion-icon slot=\"icon-only\" name=\"analytics-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>\n      Hibridização\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-item class=\"item-padding\">\n    <ion-label position=\"stacked\">Temperatura Alvo(°C)</ion-label>\n    <ion-input [(ngModel)]=\"params.sTmp\"></ion-input>\n  </ion-item>\n  <ion-item class=\"item-padding\">\n    <ion-label position=\"stacked\">Duração (min)</ion-label>\n    <ion-input [(ngModel)]=\"params.dTim\"></ion-input>\n  </ion-item>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"goToChart()\">\r\n        <ion-icon slot=\"icon-only\" name=\"analytics-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Hibridização\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n  <ion-item class=\"item-padding\">\r\n    <ion-label position=\"stacked\">Temperatura Alvo(°C)</ion-label>\r\n    <ion-input [(ngModel)]=\"params.sTmp\"></ion-input>\r\n  </ion-item>\r\n  <ion-item class=\"item-padding\">\r\n    <ion-label position=\"stacked\">Duração (min)</ion-label>\r\n    <ion-input [(ngModel)]=\"params.dTim\"></ion-input>\r\n  </ion-item>\r\n</ion-content>\r\n");
 
 /***/ }),
 
