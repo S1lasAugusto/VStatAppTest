@@ -51,7 +51,9 @@ export class ReportsPage implements OnInit {
         'CPF: ' + report.cpfPatient + '<br>' +
         'Patient Age: ' + report.agePatient + '<br>' +
         'Patient Weight: ' + report.weightPatient + '<br>' +
-        '-----------------------//----------------------- ',
+        '-----------------------//----------------------- ' +
+        'Latitude: ' + report.latitude + '<br>' +
+        'Longitude: ' + report.longitude + '<br>',
       buttons: ['OK'],
     });
 

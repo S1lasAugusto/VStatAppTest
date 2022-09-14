@@ -26,10 +26,6 @@ export class ChartPage implements OnInit {
   public showLegend = false;
   public chartLabels: Label[] = [];
 
-  //Variaveis de Localização
-  lat;
-  lng;
-
   // Options
   chartOptions = {
     responsive: true,
@@ -321,7 +317,6 @@ export class ChartPage implements OnInit {
       this.reports = JSON.parse(reportJson);
     }
     this.communicate();
-    this.whereIam();
   }
 
   communicate() {
@@ -464,6 +459,8 @@ export class ChartPage implements OnInit {
 
   async generateReport() {
 
+    //Informações do relátorio sendo geradas
+    //DATA
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     let data = today.toLocaleString();
@@ -476,8 +473,11 @@ export class ChartPage implements OnInit {
       agePatient: this.dataForReport.idade,
       weightPatient: this.dataForReport.peso,
       id: this.reports.length + 1,
-      currentData: data
+      currentData: data,
+      latitude: (await this.geolocation.getCurrentPosition()).coords.latitude,
+      longitude: (await this.geolocation.getCurrentPosition()).coords.longitude,
     }
+   
     this.reports.push(report);
     localStorage.setItem('reportDB', JSON.stringify(this.reports));
 
@@ -492,22 +492,5 @@ export class ChartPage implements OnInit {
   goToReports() {
     this.router.navigate(['/reports']);
   }
-
-  whereIam() {
-    this.geolocation.getCurrentPosition({
-      timeout: 10000,
-      enableHighAccuracy: true
-
-    }).then((res) => {
-      this.lat = res.coords.latitude;
-      this.entryTerminal('entrySystem', this.lat);
-      this.lng = res.coords.longitude
-      this.entryTerminal('entrySystem', this.lng);
-    }).catch((err) => {
-      this.entryTerminal('entrySystem', err);
-    });
-  }
-
-
 
 }
