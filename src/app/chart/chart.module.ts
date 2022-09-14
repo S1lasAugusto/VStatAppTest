@@ -8,6 +8,7 @@ import { ChartsModule } from 'ng2-charts';
 import { Serial } from '@ionic-native/serial/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import 'chartjs-plugin-zoom';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import 'chartjs-plugin-zoom';
     ChartsModule
   ],
   declarations: [ChartPage],
-  providers: [Serial, NativeAudio]
+  providers: [Serial, NativeAudio, Geolocation]
 })
 export class ChartPageModule {}

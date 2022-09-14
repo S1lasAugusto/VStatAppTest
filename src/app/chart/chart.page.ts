@@ -6,6 +6,7 @@ import { ChartDataSets, ChartType, pluginService } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { BehaviorSubject } from 'rxjs';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 export interface TimeSpan {
   minutes: number;
@@ -25,6 +26,9 @@ export class ChartPage implements OnInit {
   public showLegend = false;
   public chartLabels: Label[] = [];
 
+  //Variaveis de Localização
+  lat;
+  lng;
 
   // Options
   chartOptions = {
@@ -209,7 +213,8 @@ export class ChartPage implements OnInit {
     private router: Router,
     private zone: NgZone,
     private nativeAudio: NativeAudio,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private geolocation: Geolocation
   ) { }
 
   entryTerminal(color, entry) {
@@ -316,6 +321,7 @@ export class ChartPage implements OnInit {
       this.reports = JSON.parse(reportJson);
     }
     this.communicate();
+    this.whereIam();
   }
 
   communicate() {
@@ -461,7 +467,7 @@ export class ChartPage implements OnInit {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     let data = today.toLocaleString();
-   
+
     let report = {
       nameOperator: this.dataForReport.name,
       registerOperator: this.dataForReport.registerOperator,
@@ -470,7 +476,7 @@ export class ChartPage implements OnInit {
       agePatient: this.dataForReport.idade,
       weightPatient: this.dataForReport.peso,
       id: this.reports.length + 1,
-      currentData: data 
+      currentData: data
     }
     this.reports.push(report);
     localStorage.setItem('reportDB', JSON.stringify(this.reports));
@@ -486,4 +492,22 @@ export class ChartPage implements OnInit {
   goToReports() {
     this.router.navigate(['/reports']);
   }
+
+  whereIam() {
+    this.geolocation.getCurrentPosition({
+      timeout: 10000,
+      enableHighAccuracy: true
+
+    }).then((res) => {
+      this.lat = res.coords.latitude;
+      this.entryTerminal('entrySystem', this.lat);
+      this.lng = res.coords.longitude
+      this.entryTerminal('entrySystem', this.lng);
+    }).catch((err) => {
+      this.entryTerminal('entrySystem', err);
+    });
+  }
+
+
+
 }

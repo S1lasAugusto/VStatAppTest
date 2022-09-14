@@ -29,6 +29,8 @@
 		1F33D95BBAC4499487E1DD56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B5FAE51C1D4787B23A524A /* Foundation.framework */; };
 		0E903FCA8F574D2480631EDC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C3CB94C4F415A92F8329E /* AVFoundation.framework */; };
 		CBE3356389714F0E8E824F03 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7C1D7FC4F74281A21CAE01 /* AudioToolbox.framework */; };
+		CF16D8462E13419A952CBD28 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9156B8289E4913A18C7248 /* CDVLocation.m */; };
+		1278D340890641D291863E07 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336A948E9B354C949DC9AE75 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,9 @@
 		A5B5FAE51C1D4787B23A524A /* Foundation.framework */ = {isa = PBXFileReference; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		503C3CB94C4F415A92F8329E /* AVFoundation.framework */ = {isa = PBXFileReference; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		DA7C1D7FC4F74281A21CAE01 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9B9156B8289E4913A18C7248 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5BB00EF3AD8A47DC843B961F /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		336A948E9B354C949DC9AE75 /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,7 @@
 				1F33D95BBAC4499487E1DD56 /* Foundation.framework in Frameworks */,
 				0E903FCA8F574D2480631EDC /* AVFoundation.framework in Frameworks */,
 				CBE3356389714F0E8E824F03 /* AudioToolbox.framework in Frameworks */,
+				1278D340890641D291863E07 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +194,7 @@
 				A5B5FAE51C1D4787B23A524A /* Foundation.framework */,
 				503C3CB94C4F415A92F8329E /* AVFoundation.framework */,
 				DA7C1D7FC4F74281A21CAE01 /* AudioToolbox.framework */,
+				336A948E9B354C949DC9AE75 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +243,8 @@
 				E9EEE9D2A3C0404F98722099 /* NativeAudioAsset.m */,
 				9B2A2854C1EB42A481DFDAD8 /* NativeAudio.h */,
 				0BA71A0435DB4BD69E2E85CE /* NativeAudioAsset.h */,
+				9B9156B8289E4913A18C7248 /* CDVLocation.m */,
+				5BB00EF3AD8A47DC843B961F /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "VStat App/Plugins";
@@ -375,6 +384,7 @@
 				6D4B33EB6DC240438C7C49C9 /* CDVStatusBar.m in Sources */,
 				0591E4E14C1845B4BBC18F70 /* NativeAudio.m in Sources */,
 				5CA85D091B2E4289B30EDF36 /* NativeAudioAsset.m in Sources */,
+				CF16D8462E13419A952CBD28 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

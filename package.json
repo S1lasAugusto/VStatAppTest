@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
+    "@awesome-cordova-plugins/core": "^5.45.0",
+    "@awesome-cordova-plugins/geolocation": "^5.45.0",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/native-audio": "^5.31.1",
     "@ionic-native/serial": "^5.31.1",
@@ -46,6 +48,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^4.0.0",
     "cordova-plugin-nativeaudio": "^3.0.9",
@@ -78,7 +81,10 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordovarduino": {},
-      "cordova-plugin-nativeaudio": {}
+      "cordova-plugin-nativeaudio": {},
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      }
     },
     "platforms": [
       "android",

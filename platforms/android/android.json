@@ -50,6 +50,10 @@
             {
               "xml": "<feature name=\"NativeAudio\"><param name=\"android-package\" value=\"com.rjfun.cordova.plugin.nativeaudio.NativeAudio\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -98,6 +102,18 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-feature android:name=\"android.hardware.location.gps\" android:required=\"true\" />",
+              "count": 1
             }
           ]
         }
@@ -128,6 +144,10 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-nativeaudio": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -188,6 +208,20 @@
       "clobbers": [
         "window.plugins.NativeAudio"
       ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
     }
   ],
   "plugin_metadata": {
@@ -198,6 +232,7 @@
     "cordova-plugin-ionic-webview": "4.2.1",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordovarduino": "0.0.10",
-    "cordova-plugin-nativeaudio": "3.0.9"
+    "cordova-plugin-nativeaudio": "3.0.9",
+    "cordova-plugin-geolocation": "4.1.0"
   }
 }
