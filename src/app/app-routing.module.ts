@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'voltametria',
     loadChildren: () => import('./voltametria/voltametria.module').then( m => m.VoltametriaPageModule)
+  },
+  {
+    path: 'reports',
+    loadChildren: () => import('./reports/reports.module').then( m => m.ReportsPageModule)
   }
 ];
 @NgModule({

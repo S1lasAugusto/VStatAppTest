@@ -1,4 +1,4 @@
-<ion-header [translucent]="false" color="light" collapse="fade" [translucent]="true">
+<ion-header color="light" collapse="fade" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button (click)="operatorsView('operatorsIcon')" shape="round" fill="clear" size="small" color="light"
@@ -47,8 +47,8 @@
               <ion-icon slot="bottom" name="checkmark"></ion-icon>
               SELECT
             </ion-item-option>
-            <ion-item-option color="danger" expandable>
-              <ion-icon name='trash' slot="bottom" (click)="delete(operator)"></ion-icon>
+            <ion-item-option (click)="delete(operator)" color="danger" expandable>
+              <ion-icon name='trash' slot="bottom"></ion-icon>
               DELETE
             </ion-item-option>
           </ion-item-options>

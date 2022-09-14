@@ -1,0 +1,34 @@
+<ion-header color="light" collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #000;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Reports
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+  <ion-card>
+    <ion-list lines="full" mode="ios" class="animated bounceInUp">
+      <ion-item-sliding *ngFor="let report of reports">
+        <ion-item>
+          <ion-icon name="document-outline" slot="end"></ion-icon>
+          <ion-label>Report Date:<br> {{ report.currentData }}
+          </ion-label>
+        </ion-item>
+        <ion-item-options>
+          <ion-item-option color="secondary" expandable (click)="viewReport(report)">
+            <ion-icon slot="bottom" name="eye-outline"></ion-icon>
+            VIEW
+          </ion-item-option>
+          <ion-item-option color="danger" expandable (click)="delete(report)">
+            <ion-icon name='trash' slot="bottom"></ion-icon>
+            DELETE
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+</ion-content>

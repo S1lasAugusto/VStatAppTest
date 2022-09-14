@@ -397,6 +397,10 @@ const routes = [
     {
         path: 'voltametria',
         loadChildren: () => __webpack_require__.e(/*! import() | voltametria-voltametria-module */ "voltametria-voltametria-module").then(__webpack_require__.bind(null, /*! ./voltametria/voltametria.module */ "Aibk")).then(m => m.VoltametriaPageModule)
+    },
+    {
+        path: 'reports',
+        loadChildren: () => __webpack_require__.e(/*! import() | reports-reports-module */ "reports-reports-module").then(__webpack_require__.bind(null, /*! ./reports/reports.module */ "uHdG")).then(m => m.ReportsPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

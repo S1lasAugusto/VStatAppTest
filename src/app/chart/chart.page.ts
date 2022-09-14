@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { IonContent, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Serial } from '@ionic-native/serial/ngx';
 import { ChartDataSets, ChartType, pluginService } from 'chart.js';
@@ -121,6 +121,7 @@ export class ChartPage implements OnInit {
   };
 
   dataForReport: any;
+  reports: any[] = [];
 
   params = {
     op: 'DPV',
@@ -207,7 +208,8 @@ export class ChartPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private zone: NgZone,
-    private nativeAudio: NativeAudio
+    private nativeAudio: NativeAudio,
+    private toastController: ToastController
   ) { }
 
   entryTerminal(color, entry) {
@@ -309,6 +311,10 @@ export class ChartPage implements OnInit {
         this.configView();
       }
     });
+    let reportJson = localStorage.getItem('reportDB');
+    if (reportJson != null) {
+      this.reports = JSON.parse(reportJson);
+    }
     this.communicate();
   }
 
@@ -450,15 +456,34 @@ export class ChartPage implements OnInit {
     }
   }
 
-  generateReport() {
-    this.entryTerminal('entrySystem', "--------------------/Relatorio/--------------------");
-    this.entryTerminal('entrySystem', "Nome do Operador: " + this.dataForReport.name);
-    this.entryTerminal('entrySystem', "N° de Matricula do Operador: " + this.dataForReport.registerOperator);
-    this.entryTerminal('entrySystem', "--------------------///--------------------");
-    this.entryTerminal('entrySystem', "Nome do Paciente: " + this.dataForReport.nome);
-    this.entryTerminal('entrySystem', "CPF do Paciente: " + this.dataForReport.cpf);
-    this.entryTerminal('entrySystem', "Idade do Paciente: " + this.dataForReport.idade);
-    this.entryTerminal('entrySystem', "Peso do Paciente: " + this.dataForReport.peso);
-    this.entryTerminal('entrySystem', "--------------------///--------------------");
+  async generateReport() {
+
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    let data = today.toLocaleString();
+   
+    let report = {
+      nameOperator: this.dataForReport.name,
+      registerOperator: this.dataForReport.registerOperator,
+      namePatient: this.dataForReport.nome,
+      cpfPatient: this.dataForReport.cpf,
+      agePatient: this.dataForReport.idade,
+      weightPatient: this.dataForReport.peso,
+      id: this.reports.length + 1,
+      currentData: data 
+    }
+    this.reports.push(report);
+    localStorage.setItem('reportDB', JSON.stringify(this.reports));
+
+    const toast = await this.toastController.create({
+      message: "Generated Report!",
+      duration: 2000,
+      position: 'middle',
+    });
+    toast.present();
+  }
+
+  goToReports() {
+    this.router.navigate(['/reports']);
   }
 }

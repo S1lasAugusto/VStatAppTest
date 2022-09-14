@@ -120,10 +120,10 @@ export class VoltametriaPage {
 
     if (this.patientParams.nome == '' || this.patientParams.cpf == '' || this.patientParams.idade == '' || this.patientParams.peso == '') {
       this.presentAlertConfirm();
-    }else{
+    } else {
       const navigationExtras: NavigationExtras = {
         state: {
-          params: { ...this.params, ...this.estimatedParams, ...this.patientParams, ...this.currentUser}
+          params: { ...this.params, ...this.estimatedParams, ...this.patientParams, ...this.currentUser }
         }
       };
       this.router.navigate(['/chart'], navigationExtras);
@@ -163,10 +163,22 @@ export class VoltametriaPage {
         {
           text: 'Okay',
           handler: () => {
+            if (this.patientParams.nome == '') {
+              this.patientParams.nome = 'Not Provided'
+            }
+            if (this.patientParams.cpf == '') {
+              this.patientParams.cpf = 'Not Provided'
+            }
+            if (this.patientParams.idade == '') {
+              this.patientParams.idade = 'Not Provided'
+            }
+            if (this.patientParams.peso == '') {
+              this.patientParams.peso = 'Not Provided'
+            }
             console.log('Confirm Okay');
             const navigationExtras: NavigationExtras = {
               state: {
-                params: { ...this.params, ...this.estimatedParams, ...this.patientParams, ...this.currentUser}
+                params: { ...this.params, ...this.estimatedParams, ...this.patientParams, ...this.currentUser }
               }
             };
             this.router.navigate(['/chart'], navigationExtras);

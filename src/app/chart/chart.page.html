@@ -8,6 +8,10 @@
         style="margin: 0;">
         <ion-icon slot="icon-only" name="{{iconViews.chartIcon}}" style="color: #000;"></ion-icon>
       </ion-button>
+      <ion-button (click)="goToReports()" shape="round" fill="clear" size="small" color="light"
+        style="margin: 0;">
+        <ion-icon slot="icon-only" name="file-tray-full-outline" style="color: #000;"></ion-icon>
+      </ion-button>
       <ion-button (click)='connbtn()'>
         <ion-icon slot="icon-only" name="{{iconCntBtn}}" style="color: #000;"></ion-icon>
       </ion-button>
@@ -30,7 +34,8 @@
         <ion-row class="ion-align-items-center terminal-header">
         </ion-row>
         <ion-row [style.display]="iconViews.chartIcon === 'stats-chart'?'block':'none'">
-          <canvas baseChart [datasets]="chartData" [chartType]="chartType" [labels]="chartLabels" [options]="chartOptions"  [legend]="showLegend"></canvas>
+          <canvas baseChart [datasets]="chartData" [chartType]="chartType" [labels]="chartLabels"
+            [options]="chartOptions" [legend]="showLegend"></canvas>
         </ion-row>
       </ion-grid>
     </ion-card-content>
