@@ -27,6 +27,9 @@
     <feature name="NativeGeocoder">
         <param name="android-package" value="cordova.plugin.nativegeocoder.NativeGeocoder" />
     </feature>
+    <feature name="SocialSharing">
+        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
     <allow-navigation href="http://localhost/*" />
     <allow-navigation href="https://localhost/*" />
     <allow-navigation href="ionic://*" />
@@ -73,6 +76,7 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="webView" value="com.ionicframework.cordova.webview.IonicWebViewEngine" />
     <preference name="ScrollEnabled" value="false" />
+    <preference name="AndroidXEnabled" value="true" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ReportsPageRoutingModule } from './reports-routing.module';
 
 import { ReportsPage } from './reports.page';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ReportsPage } from './reports.page';
     IonicModule,
     ReportsPageRoutingModule
   ],
-  declarations: [ReportsPage]
+  declarations: [ReportsPage],
+   providers: [SocialSharing]
 })
 export class ReportsPageModule {}

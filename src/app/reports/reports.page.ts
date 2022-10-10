@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-reports',
@@ -10,7 +11,7 @@ export class ReportsPage implements OnInit {
 
   reports: any[] = [];
 
-  constructor(public alertController: AlertController) {
+  constructor(public alertController: AlertController, private socialSharing: SocialSharing) {
 
   }
 
@@ -64,14 +65,28 @@ export class ReportsPage implements OnInit {
         'Sub Locality: ' + report.subLocality + '<br>' +
         'Thoroughfare: ' + report.thoroughfare + '<br>' +
         'subThoroughfare: ' + report.subThoroughfare + '<br>',
-      buttons: ['OK'],
+      buttons: [
+        {
+          text: 'Okay',
+          role: 'Okay',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm: blah');
+          },
+        },
+        {
+          text: 'Share',
+          handler: () => {
+            this.shareReport(report);
+          },
+        },
+      ],
     });
 
     await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
   }
 
-
+  shareReport(report) {
+    this.socialSharing.share(JSON.stringify(report));
+  }
 }

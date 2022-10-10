@@ -103,6 +103,20 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "nativegeocoder"
       ]
+    },
+    {
+      "id": "es6-promise-plugin.Promise",
+      "file": "plugins/es6-promise-plugin/www/promise.js",
+      "pluginId": "es6-promise-plugin",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-x-socialsharing.SocialSharing",
+      "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
+      "pluginId": "cordova-plugin-x-socialsharing",
+      "clobbers": [
+        "window.plugins.socialsharing"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -116,6 +130,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-nativeaudio": "3.0.9",
     "cordova-plugin-geolocation": "4.1.0",
     "cordova-plugin-add-swift-support": "2.0.2",
-    "cordova-plugin-nativegeocoder": "3.4.1"
+    "cordova-plugin-nativegeocoder": "3.4.1",
+    "es6-promise-plugin": "4.2.2",
+    "cordova-plugin-x-socialsharing": "6.0.4",
+    "cordova-plugin-androidx-adapter": "1.1.3"
   };
 });

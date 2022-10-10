@@ -388,7 +388,7 @@ const routes = [
     },
     {
         path: 'chart',
-        loadChildren: () => __webpack_require__.e(/*! import() | chart-chart-module */ "chart-chart-module").then(__webpack_require__.bind(null, /*! ./chart/chart.module */ "8Msa")).then(m => m.ChartPageModule)
+        loadChildren: () => Promise.all(/*! import() | chart-chart-module */[__webpack_require__.e("default~chart-chart-module~reports-reports-module"), __webpack_require__.e("chart-chart-module")]).then(__webpack_require__.bind(null, /*! ./chart/chart.module */ "8Msa")).then(m => m.ChartPageModule)
     },
     {
         path: 'hibridizacao',
@@ -400,7 +400,7 @@ const routes = [
     },
     {
         path: 'reports',
-        loadChildren: () => __webpack_require__.e(/*! import() | reports-reports-module */ "reports-reports-module").then(__webpack_require__.bind(null, /*! ./reports/reports.module */ "uHdG")).then(m => m.ReportsPageModule)
+        loadChildren: () => Promise.all(/*! import() | reports-reports-module */[__webpack_require__.e("default~chart-chart-module~reports-reports-module"), __webpack_require__.e("reports-reports-module")]).then(__webpack_require__.bind(null, /*! ./reports/reports.module */ "uHdG")).then(m => m.ReportsPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

@@ -466,7 +466,7 @@ export class ChartPage implements OnInit {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     let data = today.toLocaleString();
-   let ob: any;
+    let ob: any;
 
     let location = {
       latitude: (await this.geolocation.getCurrentPosition()).coords.latitude,

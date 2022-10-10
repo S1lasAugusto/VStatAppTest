@@ -3,5 +3,7 @@
     "Foundation.framework": 1,
     "AVFoundation.framework": 1,
     "AudioToolbox.framework": 1,
-    "CoreLocation.framework": 2
+    "CoreLocation.framework": 2,
+    "Social.framework": 1,
+    "MessageUI.framework": 1
 }

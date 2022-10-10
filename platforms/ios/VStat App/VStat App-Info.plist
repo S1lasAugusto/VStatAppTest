@@ -52,5 +52,9 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Use geocoder service</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app requires photo library access to function properly.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires photo library access to function properly.</string>
 </dict>
 </plist>

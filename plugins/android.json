@@ -38,10 +38,19 @@
     },
     "cordova-plugin-nativegeocoder": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "es6-promise-plugin": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   }
