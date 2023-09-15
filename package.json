@@ -33,6 +33,7 @@
     "chartjs-plugin-zoom": "^0.7.7",
     "cordova-android": "9.0.0",
     "cordova-ios": "6.2.0",
+    "leaflet": "^1.9.3",
     "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

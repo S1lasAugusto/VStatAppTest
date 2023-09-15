@@ -460,88 +460,119 @@ export class ChartPage implements OnInit {
   }
 
   async generateReport() {
-
-    //Informações do relátorio sendo geradas
-    //DATA
-    const timeElapsed = Date.now();
-    const today = new Date(timeElapsed);
-    let data = today.toLocaleString();
-    let ob: any;
-
-    let location = {
-      latitude: (await this.geolocation.getCurrentPosition()).coords.latitude,
-      longitude: (await this.geolocation.getCurrentPosition()).coords.longitude,
+    try {
+      // Obter informações de localização
+      const position = await this.geolocation.getCurrentPosition();
+      const location = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      };
+  
+      const options: NativeGeocoderOptions = {
+        useLocale: true,
+        maxResults: 5,
+      };
+  
+      // Reverter a geocodificação
+      const results = await this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options);
+      const address = results[0];
+  
+      // Criar o relatório
+      const report = {
+        nameOperator: this.dataForReport.name,
+        registerOperator: this.dataForReport.registerOperator,
+        namePatient: this.dataForReport.nome,
+        cpfPatient: this.dataForReport.cpf,
+        agePatient: this.dataForReport.idade,
+        weightPatient: this.dataForReport.peso,
+        id: this.reports.length + 1,
+        currentData: new Date().toLocaleString(),
+        latitude: location.latitude,
+        longitude: location.longitude,
+        countryCode: address.countryCode,
+        countryName: address.countryName,
+        postalCode: address.postalCode,
+        administrativeArea: address.administrativeArea,
+        subAdministrativeArea: address.subAdministrativeArea,
+        subLocality: address.subLocality,
+        thoroughfare: address.thoroughfare,
+        subThoroughfare: address.subThoroughfare,
+      };
+  
+      // Adicionar o relatório e salvar no armazenamento local
+      this.reports.push(report);
+      localStorage.setItem('reportDB', JSON.stringify(this.reports));
+  
+      // Exibir mensagem de sucesso ao usuário
+      const toast = await this.toastController.create({
+        message: 'Generated Report!',
+        duration: 2000,
+        position: 'middle',
+      });
+      toast.present();
+    } catch (error) {
+      console.error(error);
+  
+      // Exibir mensagem de erro ao usuário
+      const toast = await this.toastController.create({
+        message: 'Error generating report',
+        duration: 2000,
+        position: 'middle',
+      });
+      toast.present();
     }
+  }
+  
 
-    let options: NativeGeocoderOptions = {
-      useLocale: true,
-      maxResults: 5
+  goToReports() {
+    this.router.navigate(['/reports']);
+  }
+
+  async generateFakeReport() {
+    const data = new Date().toLocaleString();
+    const location = { latitude: -8.0467, longitude: -34.8769 };
+
+    const ob = {
+      countryCode: 'BR',
+      countryName: 'Brazil',
+      postalCode: '00000-000',
+      administrativeArea: 'São Paulo',
+      subAdministrativeArea: 'São Paulo',
+      sublocality: 'Centro',
+      thoroughfare: 'Rua Augusta',
+      subThoroughfare: '123'
     };
-
-    this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options)
-      .then((result: NativeGeocoderResult[]) => {
-
-        this.entryTerminal('entryIn', JSON.stringify(result[0]))
-        const obj = JSON.parse(JSON.stringify(result[0]));
-        ob = obj
-        this.entryTerminal('entryOut', obj.latitude);
-        this.entryTerminal('entryOut', obj.longitude);
-        this.entryTerminal('entryOut', obj.countryCode);
-        //report.countryCode = obj.countryCode;
-        this.entryTerminal('entryOut', obj.countryName);
-        //report.countryName = obj.countryName;
-        this.entryTerminal('entryOut', obj.postalCode);
-        // report.postalCode = obj.postalCode;
-        this.entryTerminal('entryOut', obj.administrativeArea);
-        //report.administrativeArea = obj.administrativeArea;
-        this.entryTerminal('entryOut', obj.subAdministrative);
-        //report.subAdministrative = obj.subAdministrative;
-        this.entryTerminal('entryOut', obj.sublocality);
-        // report.sublocality = obj.sublocality;
-        this.entryTerminal('entryOut', obj.thoroughfare);
-        // report.thoroughfare = obj.thoroughfare;
-        this.entryTerminal('entryOut', obj.subThoroughfare);
-        report.subThoroughfare = obj.subThoroughfare;
-      }
-
-      ).catch((error: any) => console.log(error));
-
-
-    let report = {
-      nameOperator: this.dataForReport.name,
-      registerOperator: this.dataForReport.registerOperator,
-      namePatient: this.dataForReport.nome,
-      cpfPatient: this.dataForReport.cpf,
-      agePatient: this.dataForReport.idade,
-      weightPatient: this.dataForReport.peso,
-      id: this.reports.length + 1,
+    const report = {
+      nameOperator: 'John Doe',
+      registerOperator: '123456',
+      namePatient: 'Jane Doe',
+      cpfPatient: '000.000.000-00',
+      agePatient: '30',
+      weightPatient: '70',
+      id: 1,
       currentData: data,
-      latitude: (await this.geolocation.getCurrentPosition()).coords.latitude,
-      longitude: (await this.geolocation.getCurrentPosition()).coords.longitude,
+      latitude: location.latitude,
+      longitude: location.longitude,
       countryCode: ob.countryCode,
       countryName: ob.countryName,
       postalCode: ob.postalCode,
       administrativeArea: ob.administrativeArea,
       subAdministrativeArea: ob.subAdministrativeArea,
-      subLocality: ob.subLocality,
+      subLocality: ob.sublocality,
       thoroughfare: ob.thoroughfare,
-      subThoroughfare: ob.subThoroughfare,
-    }
-
-
-    this.reports.push(report);
-    localStorage.setItem('reportDB', JSON.stringify(this.reports));
-
-    const toast = await this.toastController.create({
-      message: "Generated Report!",
-      duration: 2000,
-      position: 'middle',
-    });
-    toast.present();
+      subThoroughfare: ob.subThoroughfare
+    };
+  
+    // Simula o envio do relatório
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  
+    // Salva o relatório no localStorage
+    const reports = JSON.parse(localStorage.getItem('reportDB') || '[]');
+    reports.push(report);
+    localStorage.setItem('reportDB', JSON.stringify(reports));
+  
+    return report;
   }
-
-  goToReports() {
-    this.router.navigate(['/reports']);
-  }
+  
 
 }

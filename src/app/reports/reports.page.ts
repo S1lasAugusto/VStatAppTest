@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reports',
@@ -11,7 +12,7 @@ export class ReportsPage implements OnInit {
 
   reports: any[] = [];
 
-  constructor(public alertController: AlertController, private socialSharing: SocialSharing) {
+  constructor(public alertController: AlertController, private socialSharing: SocialSharing, private router: Router) {
 
   }
 
@@ -88,5 +89,9 @@ export class ReportsPage implements OnInit {
 
   shareReport(report) {
     this.socialSharing.share(JSON.stringify(report));
+  }
+
+  goToMaps() {
+    this.router.navigate(['/map']);
   }
 }
